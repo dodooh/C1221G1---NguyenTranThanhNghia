@@ -1,0 +1,5 @@
+BEGIN
+	INPUT C
+	F = (9*C)/5 + 32
+	PRINT F
+END
