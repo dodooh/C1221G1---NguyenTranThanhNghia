@@ -1,0 +1,6 @@
+BEGIN
+	INPUT USD
+	Tigia = 23000
+	VND = USD * Tigia 
+	DISPLAY VND
+END

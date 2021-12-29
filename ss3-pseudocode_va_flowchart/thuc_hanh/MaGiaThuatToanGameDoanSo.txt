@@ -1,0 +1,9 @@
+BEGIN 
+	INPUT RANDOM R (FROM 0 TO 9)
+	INPUT NUM
+	IF (NUM== R)
+		DISPLAY "Du doan dung"
+	ELSE
+		DISPLAY "Du doan sai"
+	END IF
+END

@@ -1,0 +1,13 @@
+BEGIN
+	INPUT N
+	INPUT a1, a2, a3, ... an
+	max = a1
+	i = 2
+	WHILE ( i <= N)
+	DO
+		IF (a[i] > max)
+			max = a[i]
+		i = i + 1
+	END DO
+	DISPLAY max
+END
