@@ -4,15 +4,12 @@ BEGIN
 		DISPLAY "Loai A"
 	ELSE IF (diem >= 60)
 		DISPLAY "Loai B"
-	         ELSE IF (diem >= 45)
-			DISPLAY "Loai C"
-		   ELSE IF (diem >= 35)
-				DISPLAY "Loai D"
-			ELSE 
-				DISPLAY "Loai E"
-			END IF
-		 END IF
-	         END IF
+	ELSE IF (diem >= 45)
+		DISPLAY "Loai C"
+	ELSE IF (diem >= 35)
+		DISPLAY "Loai D"
+	ELSE 
+		DISPLAY "Loai E"
 	END IF
 END
 			        

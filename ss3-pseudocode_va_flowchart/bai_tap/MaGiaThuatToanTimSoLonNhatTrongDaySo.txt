@@ -7,6 +7,7 @@ BEGIN
 	DO
 		IF (a[i] > max)
 			max = a[i]
+		END IF
 		i = i + 1
 	END DO
 	DISPLAY max
