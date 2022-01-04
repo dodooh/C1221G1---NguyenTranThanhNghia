@@ -36,7 +36,7 @@ function bai3() {
     clear()
     // Show tiêu đề bài tập
     showProblem.innerHTML = "<h3>Chương Trình Tính Diện Tích Hình Tròn</h3>";
-    let r = prompt("Nhập Bán Kính: ")
+    let r = parseFloat(prompt("Nhập Bán Kính: "))
     // Show các bước nhập của người dùng
     let area = r * r * 3.14;
     showStep.innerHTML = "<h5>" + "Bán kính là: " + r + "</h5>"
@@ -47,7 +47,7 @@ function bai4() {
     clear()
     // Show tiêu đề bài tập
     showProblem.innerHTML = "<h3>Chương Trình Tính Chu Vi Hình Tròn</h3>";
-    let r = prompt("Nhập Bán Kính: ")
+    let r = parseFloat(prompt("Nhập Bán Kính: "))
     // Show các bước nhập của người dùng
     let peri = 2 * r * 3.14;
     showStep.innerHTML = "<h5>" + "Bán kính là: " + r + "</h5>"
