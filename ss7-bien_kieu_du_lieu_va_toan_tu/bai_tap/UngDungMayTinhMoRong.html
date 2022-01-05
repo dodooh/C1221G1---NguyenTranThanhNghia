@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <title>Calculator</title>
     <style>
+
         button {
             width: 80px;
             height: 40px;
             border: 1px solid #F1F1F1;
             border-radius: 4px;
         }
+
         input[type="text"] {
+            font-family: sans-serif;
+            font-size: 24px;
             height: 32px;
             width: 320px;
             text-align: right;
         }
+
+        .submit {
+            background-color: blue;
+            color: white;
+        }
+
         button.operate {
             background-color: #898989;
         }
@@ -22,15 +32,25 @@
         button.number {
             background-color: #F1F1F1;
         }
+
         .row {
             padding: 10px 5px;
+        }
+
+        button {
+            transition-duration: 0.4s;
+        }
+
+        button:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
         }
     </style>
 </head>
 <body>
 <h1>Calculator</h1>
 <div class="row">
-    <input type="text"id="input-box">
+    <input type="text" id="input-box">
 </div>
 <div class="row">
     <button class="operate" type="button" onclick="addToOperator(event)" value="(">(</button>
@@ -42,7 +62,7 @@
     <button class="number" type="button" onclick="addToOperator(event)" value="7">7</button>
     <button class="number" type="button" onclick="addToOperator(event)" value="8">8</button>
     <button class="number" type="button" onclick="addToOperator(event)" value="9">9</button>
-    <button class="operate" type="button" onclick="addToOperator(event)" value="/">/</button>
+    <button class="operate" type="button" onclick="addToOperator(event)" value="/">÷</button>
 </div>
 <div class="row">
     <button class="number" type="button" onclick="addToOperator(event)" value="4">4</button>
@@ -59,7 +79,7 @@
 <div class="row">
     <button class="number" type="button" onclick="addToOperator(event)" value="0">0</button>
     <button class="number" type="button" onclick="addToOperator(event)" value=".">.</button>
-    <button class="submit" type="button" onclick="showResult(event)" >=</button>
+    <button class="submit" type="button" onclick="showResult()">=</button>
     <button class="operate" type="button" onclick="addToOperator(event)" value="+">+</button>
 </div>
 <div id="show-result"></div>
