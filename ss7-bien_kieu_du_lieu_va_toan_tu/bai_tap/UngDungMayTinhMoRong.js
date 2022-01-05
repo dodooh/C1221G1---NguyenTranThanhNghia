@@ -2,6 +2,7 @@
 let str = "";
 function clear() {
     document.getElementById("input-box").value = "";
+    str = "";
 }
 
 function addToOperator(e) {
@@ -11,10 +12,6 @@ function addToOperator(e) {
     console.log(str);
     document.getElementById("input-box").value = str;
 
-}
-function deleteAll() {
-    clear();
-    str = "";
 }
 function showResult() {
     str = eval(str).toString()
