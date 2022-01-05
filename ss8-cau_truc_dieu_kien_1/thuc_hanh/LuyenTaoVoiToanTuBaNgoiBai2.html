@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toan Tu Ba Ngoi</title>
+</head>
+<body>
+<script>
+    let login = prompt("nhap message: ")
+    //code vào đây
+    let message = (login == 'Employee') ?
+        'Hello' :
+        (login == 'Director') ?
+            'Greetings' :
+            (login == '') ?
+                'No login' :
+                '';
+    alert(message)
+</script>
+</body>
+</html>
