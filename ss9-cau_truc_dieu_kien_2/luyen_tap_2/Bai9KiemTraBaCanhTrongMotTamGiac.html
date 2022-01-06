@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+<script>
+    // a,b,c > 0
+    // a + b > c
+    // b + c > a
+    // a + c > b
+    let a = parseFloat(prompt("Nhập a: "));
+    let b = parseFloat(prompt("Nhập b: "));
+    let c = parseFloat(prompt("Nhập c: "));
+    let isValid = true;
+    if (a <= 0 || b <= 0 || c <= 0) {
+        isValid = false;
+    } else {
+        if (! (a + b > c && b + c > a && c + a > b)) {
+            isValid = false;
+        }
+    }
+    isValid ?
+        alert(a + ", " + b + ", " + c + " là 3 cạnh của một tam giác.")
+    :
+        alert(a + ", " + b + ", " + c + " không phải là 3 cạnh của một tam giác.")
+</script>
+</body>
+</html>
