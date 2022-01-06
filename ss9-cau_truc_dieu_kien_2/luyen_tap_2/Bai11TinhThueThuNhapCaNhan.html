@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính thuế thu nhập cá nhân</title>
+</head>
+<body>
+<script>
+    // Bậc 	Thu nhập tính thuế/tháng (triệu đồng) 	Thuế suất
+    // 1 	        Đến 05 	                            5 %
+    // 2 	        Trên 05 đến 18 	                    10 %
+    // 4 	        Trên 18 đến 32 	                    20 %
+    // 5 	        Trên 32 đến 52 	                    25 %
+    // 6 	        Trên 52 đến 80 	                    30 %
+    // 7 	        Trên 80 	                        35 %
+    let thuNhap = parseInt(prompt("nhập thu nhập của bạn /tháng (triệu đồng): "));
+    let rate;
+    if (thuNhap >= 80) {
+        rate = .35;
+    } else if (thuNhap >= 52) {
+        rate = .3;
+    } else if (thuNhap >= 32) {
+        rate = .25;
+    } else if (thuNhap >= 18) {
+        rate = .2;
+    } else if (thuNhap >= 5) {
+        rate = .1;
+    } else {
+        rate = .05;
+    }
+    alert("Thuế bạn phải đóng là: " + (thuNhap * rate) + " triệu đồng.");
+</script>
+</body>
+</html>
