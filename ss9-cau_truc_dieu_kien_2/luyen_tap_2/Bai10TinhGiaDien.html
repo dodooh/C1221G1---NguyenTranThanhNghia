@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá điện</title>
+</head>
+<body>
+<script>
+    //              ĐƠN GIÁ THEO QĐ 648/QĐ-BCT (đồng/kWh) 	SẢN LƯỢNG (kWh)
+    // Bậc thang 1 	        1678 	                              50
+    // Bậc thang 2 	        1734 	                              50
+    // Bậc thang 3 	        2014 	                              100
+    // Bậc thang 4 	        2536 	                               0
+    let soDien = parseInt(prompt("Nhập vào số điện: "));
+    let total = 0;
+    let donGia;
+    if (soDien > 50) {
+        total += 50 * 1678;
+        soDien -= 50;
+        if (soDien > 50) {
+            total += 50 * 1734;
+            soDien -= 50;
+            if (soDien > 100) {
+                total += 100 * 2014;
+                soDien -= 100;
+                if (soDien > 0) {
+                    total += soDien * 2536;
+                }
+            } else {
+                total += soDien * 2014;
+            }
+        } else {
+            total += soDien * 1734;
+        }
+    } else {
+        total += soDien * 1678;
+    }
+    alert("Giá điện tháng này của bạn là " + total)
+</script>
+</body>
+</html>
