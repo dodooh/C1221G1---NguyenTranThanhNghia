@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xep hang hoc luc</title>
+</head>
+<body>
+<script>
+    let baiKiemTra = parseFloat(prompt("Nhập điểm bài kiểm tra: "));
+    let giuaKy = parseFloat(prompt("Nhập điểm giữa kỳ: "));
+    let cuoiKy = parseFloat(prompt("Nhập điểm cuối kỳ: "));
+    let final = baiKiemTra * .2 + giuaKy * .35 + cuoiKy * .45;
+    let loai;
+    if (final >= 8.0) {
+        loai = "Gioi";
+    } else if (final > 6.5) {
+        loai = "Kha";
+    } else if (final > 5.0) {
+        loai = "Trung Bình";
+    } else {
+        loai = "Yếu";
+    }
+    alert("Điểm cuối kỳ: " + final + ". Xếp loại: " + loai);
+</script>
+</body>
+</html>
