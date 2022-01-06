@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Hoa Hồng</title>
+</head>
+<body>
+<script>
+    // <10M => 5%;
+    // 10M <= ds < 25M : 6%;
+    // 25M <= ds < 50M : 7.5%;
+    // 50M <= ds : 9%
+    let doanhSo = parseInt(prompt("Nhập doanh số: "));
+    let rate;
+    if (doanhSo >= 50000000) {
+        rate = .09;
+    } else if (doanhSo >= 25000000) {
+        rate = .075;
+    } else if (doanhSo >= 10000000) {
+        rate = .06;
+    } else {
+        rate = .05;
+    }
+    alert("Hoa Hồng Của Bạn Là: " + rate*doanhSo);
+</script>
+</body>
+</html>
