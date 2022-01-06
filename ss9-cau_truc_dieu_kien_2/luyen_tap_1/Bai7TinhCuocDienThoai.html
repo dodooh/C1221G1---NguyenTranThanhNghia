@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính cước điện thoại</title>
+</head>
+<body>
+<script>
+    // Tính cước
+    // Giá = Thuê bao (22000) + nội_mạng * 1000 + ngoại_mạng * 1500;
+    // Khuyến mãi:
+    // Số phút nội + ngoại >= 600p : -20%;
+    // 600 > Số phút nội + ngoại >= 400p : -15%;
+    // 400 > Số phút nội + ngoại >= 200p : -10%;
+    // 200 > Số phút nội + ngoại >= 100p : -5%;
+    // còn lại không giảm.
+    let noiMang = parseInt(prompt("nhập số phút gọi nội mạng"))
+    let ngoaiMang = parseInt(prompt("nhập số phút gọi ngọai mạng"))
+    let sum = noiMang + ngoaiMang;
+    if (sum >= 600) {
+        rate = .2;
+    } else if (sum >= 400) {
+        rate = .15;
+    } else if (sum >= 200) {
+        rate = .1;
+    } else if (sum >= 100) {
+        rate = .05;
+    }
+    let total = 22000 + (noiMang * 1000 + ngoaiMang * 1500) * (1 - rate);
+    alert("Tổng tiền cước phải trả là: " + total)
+</script>
+</body>
+</html>
