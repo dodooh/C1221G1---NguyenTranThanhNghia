@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>May Tinh Don Gian</title>
+    <style>
+        form {
+            text-align: center;
+            border: 2px solid black;
+            width: 220px;
+            height: auto;
+        }
+
+        input {
+            color: blue;
+            margin-top: 10px;
+            width: 200px;
+            height: 40px;
+            text-align: right;
+        }
+        .myTable {
+            display: flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .myTable tr {
+            display: flex;
+            align-items:center;
+            justify-content:center;
+            margin: 5px 0;
+        }
+
+        .myTable td {
+            margin-right: 5px;
+        }
+        .myTable td button {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: 2px solid gray;
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<form>
+
+    <input type="text" id="screen">
+    <table class="myTable">
+        <tr>
+            <td>
+                <button type="button" value="1" onclick="getNum(this.value)">1</button>
+            </td>
+            <td>
+                <button type="button" value="2" onclick="getNum(this.value)">2</button>
+            </td>
+            <td>
+                <button type="button" value="3" onclick="getNum(this.value)">3</button>
+            </td>
+            <td>
+                <button type="button" value="+" onclick="getNum(this.value)">+</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" value="4" onclick="getNum(this.value)">4</button>
+            </td>
+            <td>
+                <button type="button" value="5" onclick="getNum(this.value)">5</button>
+            </td>
+            <td>
+                <button type="button" value="6" onclick="getNum(this.value)">6</button>
+            </td>
+            <td>
+                <button type="button" value="-" onclick="getNum(this.value)">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" value="7" onclick="getNum(this.value)">7</button>
+            </td>
+            <td>
+                <button type="button" value="8" onclick="getNum(this.value)">8</button>
+            </td>
+            <td>
+                <button type="button" value="9" onclick="getNum(this.value)">9</button>
+            </td>
+            <td>
+                <button type="button" value="*" onclick="getNum(this.value)">x</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" value="C" onclick="getNum(this.value)">C</button>
+            </td>
+            <td>
+                <button type="button" value="0" onclick="getNum(this.value)">0</button>
+            </td>
+            <td>
+                <button type="button" value="=" onclick="getNum(this.value)">=</button>
+            </td>
+            <td>
+                <button type="button" value="/" onclick="getNum(this.value)">/</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<script>
+    let str = "";
+
+    function getNum(val) {
+        switch (val) {
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+                str += val;
+                document.getElementById("screen").value = "";
+                break;
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+                str += val;
+                document.getElementById("screen").value += val;
+                break;
+            case "=":
+                document.getElementById("screen").value = eval(str);
+                str = "";
+                break;
+            case "C":
+                str = "";
+                document.getElementById("screen").value = "";
+                break;
+        }
+    }
+</script>
+</body>
+</html>
