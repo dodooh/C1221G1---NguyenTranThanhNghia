@@ -3,21 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>You have no choice</title>
+    <style>
+        body {
+            display: flex;
+            flex-flow: column ;
+            align-items: center;
+            justify-content: center;
+            background-color: #1A5F7A;
+            color: #FFC900;
+            font-family: 'Open Sans', sans-serif;
+        }
+        h1 {
+            font-weight: bold;
+            font-size: 80px;
+        }
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-content: center;
+            gap: 20px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        button {
+            color: #FFC900;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 24px;
+            font-width: bold;
+            width: 100px;
+            height: 50px;
+            background-color: #086E7D;
+            border: 5px solid #FFF89A;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-<h1>Do You Love Me</h1>
-<button type="button" id="yes" onclick="sayYes()">YES</button>
-<button type="button" id="no" onmouseover="changePosition()">NO</button>
+<h1>Do You Love Me?</h1>
+<div>
+    <button type="button" id="yes" onclick="sayYes()">YES</button>
+    <button type="button" id="no" onmouseover="changePosition()">NO</button>
+</div>
 <script>
     function sayYes() {
-        alert("<3");
+        alert("You have no choice. <3 ");
     }
 
     function changePosition() {
-        let afterWidth = Math.floor(Math.random() * window.innerWidth);
-        let afterHeight = Math.floor(Math.random() * window.innerHeight);
-        document.getElementById('no').style.
-
+        let afterWidth = Math.round(Math.random() * window.innerWidth);
+        let afterHeight = Math.round(Math.random() * window.innerHeight);
+        document.getElementById('no').style.position = "absolute";
+        document.getElementById('no').style.left = afterWidth + "px";
+        document.getElementById('no').style.top = afterHeight + "px";
     }
 
 </script>
