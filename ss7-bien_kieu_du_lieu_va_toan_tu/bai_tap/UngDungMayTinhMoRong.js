@@ -6,8 +6,8 @@ function clean() {
 }
 
 function addToOperator(e) {
-    let btn_value = e.target.value;
-    str += btn_value;
+    let btnValue = e.target.value;
+    str += btnValue;
     document.getElementById("input-box").value = str;
 
 }
