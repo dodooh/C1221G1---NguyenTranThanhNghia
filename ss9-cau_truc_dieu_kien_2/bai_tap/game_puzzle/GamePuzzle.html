@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="hinh1" src="spider1.jpg" style="height: 240px;width: 720px;" onclick="doiHinh(1)">
+<br>
+<img id="hinh2" src="iron2.jpg" style="height: 240px;width: 720px" onclick="doiHinh(2)">
+<br>
+<img id="hinh3" src="cap3.jpg" style="height: 240px;width: 720px" onclick="doiHinh(3)">
+<script>
+
+    let objHinh1 = document.getElementById("hinh1");
+    let objHinh2 = document.getElementById("hinh2");
+    let objHinh3 = document.getElementById("hinh3");
+
+    function doiHinh(hinh) {
+        switch (hinh) {
+            case 1:
+                if (objHinh1.getAttribute('src') === 'spider1.jpg') {
+                    objHinh1.src = "iron1.jpg";
+                } else if (objHinh1.getAttribute('src') === 'iron1.jpg') {
+                    objHinh1.src = "cap1.jpg";
+                } else {
+                    objHinh1.src = "spider1.jpg";
+                }
+                break;
+            case 2:
+                if (objHinh2.getAttribute('src') === 'spider2.jpg') {
+                    objHinh2.src = "iron2.jpg";
+                } else if (objHinh2.getAttribute('src') === 'iron2.jpg') {
+                    objHinh2.src = "cap2.jpg";
+                } else {
+                    objHinh2.src = "spider2.jpg";
+                }
+                break;
+            case 3:
+                if (objHinh3.getAttribute('src') === 'spider3.jpg') {
+                    objHinh3.src = "iron3.jpg";
+                } else if (objHinh3.getAttribute('src') === 'iron3.jpg') {
+                    objHinh3.src = "cap3.jpg";
+                } else {
+                    objHinh3.src = "spider3.jpg";
+                }
+                break;
+        }
+        if (isMatch()) {
+            objHinh1.style.border = 'solid 5px green';
+            objHinh2.style.border = 'solid 5px green';
+            objHinh3.style.border = 'solid 5px green';
+        } else {
+            objHinh1.style.border = 'solid 5px white';
+            objHinh2.style.border = 'solid 5px white';
+            objHinh3.style.border = 'solid 5px white';
+        }
+    }
+
+    function isMatch() {
+        if (objHinh1.getAttribute('src') === 'cap1.jpg' && objHinh2.getAttribute('src') === 'cap2.jpg' &&
+            objHinh3.getAttribute('src') === 'cap3.jpg') {
+            return true;
+        } else if (objHinh1.getAttribute('src') === 'iron1.jpg' && objHinh2.getAttribute('src') === 'iron2.jpg' &&
+            objHinh3.getAttribute('src') === 'iron3.jpg') {
+            return true;
+        } else if (objHinh1.getAttribute('src') === 'spider1.jpg' && objHinh2.getAttribute('src') === 'spider2.jpg' &&
+            objHinh3.getAttribute('src') === 'spider3.jpg') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
