@@ -1,4 +1,3 @@
-
 function calculate() {
     let from = document.getElementById("dd-from").value;
     let to = document.getElementById("dd-to").value;

@@ -14,8 +14,8 @@
     // 400 > Số phút nội + ngoại >= 200p : -10%;
     // 200 > Số phút nội + ngoại >= 100p : -5%;
     // còn lại không giảm.
-    let noiMang = parseInt(prompt("nhập số phút gọi nội mạng"))
-    let ngoaiMang = parseInt(prompt("nhập số phút gọi ngọai mạng"))
+    let noiMang = parseInt(prompt("nhập số phút gọi nội mạng"));
+    let ngoaiMang = parseInt(prompt("nhập số phút gọi ngọai mạng"));
     let sum = noiMang + ngoaiMang;
     if (sum >= 600) {
         rate = .2;
@@ -27,7 +27,7 @@
         rate = .05;
     }
     let total = 22000 + (noiMang * 1000 + ngoaiMang * 1500) * (1 - rate);
-    alert("Tổng tiền cước phải trả là: " + total)
+    alert("Tổng tiền cước phải trả là: " + total);
 </script>
 </body>
 </html>

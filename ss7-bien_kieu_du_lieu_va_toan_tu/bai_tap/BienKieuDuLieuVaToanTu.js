@@ -12,8 +12,8 @@ function bai1() {
     clear()
     // Show tiêu đề bài tập
     showProblem.innerHTML = "<h3>Chương trình tính điểm trung bình</h3>";
-    let vatLy = parseFloat(prompt("Nhập điểm vật lý: "))
-    let hoaHoc = parseFloat(prompt("Nhập điểm hóa học: "))
+    let vatLy = parseFloat(prompt("Nhập điểm vật lý: "));
+    let hoaHoc = parseFloat(prompt("Nhập điểm hóa học: "));
     let sinhHoc = parseFloat(prompt("Nhập điểm sinh học: "))
     let diemTrungBinh = (vatLy + hoaHoc + sinhHoc) / 3.0;
     // Show các bước nhập của người dùng

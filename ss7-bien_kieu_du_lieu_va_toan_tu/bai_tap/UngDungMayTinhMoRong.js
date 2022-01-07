@@ -13,7 +13,7 @@ function addToOperator(e) {
 }
 
 function showResult() {
-    str = eval(str).toString()
+    str = eval(str).toString();
     document.getElementById("input-box").value = str;
 }
 
