@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi suất</title>
+</head>
+<body>
+<div id="show"></div>
+<script>
+    let tienNo = parseInt(prompt("Nhập Số tiền muốn vay: "));
+    let thang = parseInt(prompt("Nhập số tháng muốn vay: "));
+    let phanTramLai = parseFloat(prompt("Nhập số phần trăm lãi %/tháng: "));
+    let result = "Tháng thứ 0. Tiền vay là: " + tienNo.toLocaleString() + ". Lãi suất " + phanTramLai + "%" + "<br>";
+    for (let i = 1; i <= thang; i++) {
+        tienNo = Math.round(tienNo * (100 + phanTramLai) / 100);
+        result += "Tháng thứ " + i + ". Tiền Nợ (cả gốc lẫn lãi) là: " + tienNo.toLocaleString() + "<br>";
+    }
+    document.getElementById("show").innerHTML = result;
+
+
+</script>
+</body>
+</html>
