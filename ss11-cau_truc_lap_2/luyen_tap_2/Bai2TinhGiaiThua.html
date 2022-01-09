@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Giai Thừa</title>
+</head>
+<body>
+
+<script>
+    let num = parseInt(prompt("Nhập vào số để tính giai thừa: "));
+    let result = 1;
+    for (let i = 2; i <= num; i++) {
+        result *= i;
+    }
+    document.write("<h2>" + num + "! = "+ result + "</h2>");
+</script>
+</body>
+</html>
