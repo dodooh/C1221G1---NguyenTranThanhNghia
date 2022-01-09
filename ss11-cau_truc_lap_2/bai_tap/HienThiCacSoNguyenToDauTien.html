@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>N So Nguyen To</title>
+</head>
+<body>
+<p id="show"></p>
+<script>
+    let num = parseInt(prompt("Nhap n: "));
+    let count = 0;
+    let N = 2;
+    while (count != num) {
+        let isPrime = true;
+        for (let i = 2; i < Math.floor(Math.sqrt(N)) + 1; i++) {
+            if (N % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            document.getElementById("show").innerText += N + "\n";
+            count++;
+        }
+        N++;
+    }
+</script>
+</body>
+</html>
