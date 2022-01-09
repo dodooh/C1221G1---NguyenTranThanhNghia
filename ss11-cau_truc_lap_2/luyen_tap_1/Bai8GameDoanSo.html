@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Đoán Số</title>
+</head>
+<body>
+<h1>Game Đoán Số</h1>
+<button type="button" onclick="play()">Chơi</button>
+<script>
+    // Nhập khoảng [x,y]
+    // Tạo randomNumber
+    // Cho người dùng nhập số và kiểm tra
+    // Nếu đúng thì thông báo "THẮNG"
+    // Nếu ko thì nhập lại => Nếu 3 lần sai thì thông báo "THUA"
+
+    function play() {
+        let x = parseInt(prompt("Nhâp vào khoảng [x,y]. Nhập x: "));
+        let y = parseInt(prompt("Nhập y: "));
+        let randomNumber = x + Math.floor(Math.random() * (y - x));
+        console.log(randomNumber);
+        let count = 3;
+        let isWin = false;
+        let userGuess = null;
+        while (count != 0) {
+            userGuess = parseInt(prompt("Đoán số trong khoảng [" + x + "," + y + "]: "));
+            if (userGuess === randomNumber) {
+                isWin = true;
+                break;
+            } else if (userGuess > randomNumber) {
+                alert("Sai! Số vừa nhập lớn hơn số cần tìm. Còn " + --count + " lượt");
+            } else {
+                alert("Sai! Số vừa nhập bé thua số cần tìm. Còn " + --count + " lượt");
+            }
+        }
+        isWin ? alert("Bạn THẮNG") : alert("Bạn THUA");
+    }
+</script>
+</body>
+</html>
