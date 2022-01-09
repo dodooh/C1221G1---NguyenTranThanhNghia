@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First 20 Fibonacci</title>
+</head>
+<body>
+<h3>20 số fibonacci đầu tiên</h3>
+<p id="show"></p>
+<script>
+    let i = 0, j = 1, count = 2;
+    let output = i + " " + j + " ";
+    for (; count < 20; count++) {
+        let temp = j;
+        j += i;
+        i = temp;
+        output += j + " ";
+    }
+    document.getElementById("show").innerText = output;
+</script>
+</body>
+</html>
