@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ Hình Chữ Nhật</title>
+</head>
+<body>
+<p id="show"></p>
+<script>
+    let chieuDai = parseInt(prompt("Nhập Chiều Dài: "));
+    let chieuRong = parseInt(prompt("Nhập Chiều Rộng: "));
+    let result = "";
+    for (let i = 0; i < chieuRong; i++) {
+        for (let j = 0; j < chieuDai; j++) {
+            if (i === 0 || i === chieuRong - 1 || j === 0 || j === chieuDai - 1) {
+                result += "*";
+            } else {
+                result += "&ensp;";
+            }
+        }
+        result += "<br>";
+    }
+    document.getElementById("show").innerHTML = result;
+</script>
+</body>
+</html>
