@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số Fibo đầu tiên chia hết cho 5</title>
+</head>
+<body>
+<h4>Số Fibo đầu tiên chia hết cho 5 là: </h4>
+<p id="show"></p>
+<script>
+    let i = 0, j = 1;
+    while (j % 5 != 0) {
+        let temp = j;
+        j += i;
+        i = temp;
+    }
+    document.getElementById("show").innerText = j;
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum of First 20 Fibonacci</title>
+</head>
+<body>
+<h3>Tổng 20 số fibonacci đầu tiên là: </h3>
+<p id="show"></p>
+<script>
+    let i = 0, j = 1, count = 2;
+    let sum = i + j;
+    for (; count < 20; count++) {
+        let temp = j;
+        j += i;
+        i = temp;
+        sum += j;
+    }
+    console.log(sum);
+    document.getElementById("show").innerText = sum;
+</script>
+</body>
+</html>

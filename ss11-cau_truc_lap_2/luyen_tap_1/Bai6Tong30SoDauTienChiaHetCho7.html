@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum of First 30 Divisible By 7</title>
+</head>
+<body>
+<h3>Tổng 30 số đầu tiên chia hết cho 7 là: </h3>
+<p id="show"></p>
+<script>
+    let sum = 0;
+    for (let i = 1; i <= 30; i++) {
+        // console.log(7*i);
+        sum += 7 * i;
+    }
+    console.log(sum);
+    document.getElementById("show").innerText = sum;
+</script>
+</body>
+</html>
