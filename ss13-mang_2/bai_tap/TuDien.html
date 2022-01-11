@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<form action="">
+    <input type="text" id="input" size="50">
+    <input type="button" onclick="timKiem()" value="Tìm">
+</form>
+<script>
+    let englishArray = ["go", "work", "shopping", "play", "cook", "sleep", "eat"];
+    let vietnamArray = ["đi", "làm việc", "đi mua sắm", "chơi", "nấu ăn", "ngủ", "ăn"];
+
+    function timKiem() {
+        let word = document.getElementById("input").value;
+        let i;
+        for (i = 0; i < englishArray.length; i++) {
+            if (word === englishArray[i]) {
+                alert(word + " có nghĩa là: " + vietnamArray[i]);
+                break;
+            }
+        }
+        if (i === englishArray.length) {
+            alert('Không tìm thấy từ này');
+        }
+
+    }
+</script>
+</body>
+</html>
