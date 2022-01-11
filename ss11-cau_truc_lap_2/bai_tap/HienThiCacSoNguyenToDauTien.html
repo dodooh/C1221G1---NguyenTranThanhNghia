@@ -7,12 +7,12 @@
 <body>
 <p id="show"></p>
 <script>
-    let num = parseInt(prompt("Nhap n: "));
+    let soLuong = parseInt(prompt("Nhap n: "));
     let count = 0;
     let N = 2;
     // Lặp lại vòng lặp cho đến khi count == N
-    while (count !== num) {
-        let isPrime = true;
+    while (count !== soLuong) {
+        let isPrime = true; // N la so nguyen to
         // kiểm tra N có phải số Nguyên tố không
         for (let i = 2; i < Math.floor(Math.sqrt(N)) + 1; i++) {
             if (N % i === 0) {
@@ -22,7 +22,7 @@
         }
         // Nếu N là số nguyên tố thì in ra và tăng count
         if (isPrime) {
-            document.getElementById("show").innerText += N + "\n";
+            document.getElementById("show").innerText += N + "\n"; // in ra
             count++;
         }
         N++;
