@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sử dụng các hàm có sẵn của mảng</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập vào chuỗi: vd: The Quick Brown Fox");
+    str = str.split(" ").map(function (word) {
+        word = word.split("").map(char => {
+            if (char === char.toUpperCase()) {
+                return char.toLowerCase();
+            } else return char.toUpperCase();
+        }).join("");
+        return word;
+    }).join(" ");
+    document.write(str);
+</script>
+</body>
+</html>
