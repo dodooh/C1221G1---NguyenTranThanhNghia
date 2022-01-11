@@ -5,29 +5,32 @@
     <title>Ve Tam Giac Vuong</title>
 </head>
 <body>
-<button type="button" onclick="bottomLeft()">Dưới Trái</button>
-<button type="button" onclick="bottomRight()">Dưới Phải</button>
-<button type="button" onclick="topLeft()">Trên Trái</button>
-<button type="button" onclick="topRight()">Trên Phải</button>
 
 <br>
 <div id="show"></div>
 <script>
-    function bottomLeft() {
+    let canh = parseInt(prompt("Nhập độ dài tam giác: "));
+    bottomLeft(canh);
+    bottomRight(canh);
+    topLeft(canh);
+    topRight(canh);
+
+    function bottomLeft(canh) {
         let result = "";
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < canh; i++) {
             for (let j = 0; j < i + 1; j++) {
                 result += "*";
             }
             result += "<br>";
         }
-        document.getElementById("show").innerHTML = result;
+        document.write(result);
+        document.write("<br>");
     }
 
-    function bottomRight() {
+    function bottomRight(canh) {
         let result = "";
-        for (let i = 0; i < 5; i++) {
-            for (let space = 0; space < 5 - i - 1; space++) {
+        for (let i = 0; i < canh; i++) {
+            for (let space = 0; space < canh - i - 1; space++) {
                 result += "&ensp;"; // &ensp; = 2space
             }
 
@@ -37,24 +40,28 @@
             result += "<br>";
             console.log(result);
         }
-        document.getElementById("show").innerHTML = result;
+        document.write(result);
+        document.write("<br>");
+
     }
 
-    function topLeft() {
+    function topLeft(canh) {
         let result = "";
-        for (let i = 5; i > 0; i--) {
+        for (let i = canh; i > 0; i--) {
             for (let j = 0; j < i; j++) {
                 result += "*";
             }
             result += "<br>";
         }
-        document.getElementById("show").innerHTML = result;
+        document.write(result);
+        document.write("<br>");
+
     }
 
-    function topRight() {
+    function topRight(canh) {
         let result = "";
-        for (let i = 5; i > 0; i--) {
-            for (let space = 0; space < 5 - i; space++) {
+        for (let i = canh; i > 0; i--) {
+            for (let space = 0; space < canh - i; space++) {
                 result += "&ensp;"; // &ensp; = 2space
             }
 
@@ -64,7 +71,9 @@
             result += "<br>";
             console.log(result);
         }
-        document.getElementById("show").innerHTML = result;
+        document.write(result);
+        document.write("<br>");
+
     }
 </script>
 </body>
