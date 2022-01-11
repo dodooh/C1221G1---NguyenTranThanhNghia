@@ -5,6 +5,18 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+    let arr = [-3, 5, 3, -3, 6, 10];
+    let first = 0;
+    let last = arr.length - 1;
+    while (first < last) {
+        let temp = arr[first];
+        arr[first] = arr[last];
+        arr[last] = temp;
+        first++;
+        last--;
+    }
+    document.write(arr.toString());
+</script>
 </body>
 </html>
