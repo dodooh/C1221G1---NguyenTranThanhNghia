@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Descending Sort</title>
+</head>
+<body>
+<script>
+    let array = [-19, 4, -5, 67, 4, -95, 72, -12, 4, 2];
+    let V = parseInt(prompt("Nhập V: "));
+    document.write("Mảng ban đầu: " + array);
+    document.write("<br>");
+    for (let i = 0; i < array.length - 1; i++) {
+        if (array[i] === V) {
+            array.splice(i, 1);
+            array.push(0);
+        }
+    }
+    document.write("Mảng sau khi bỏ V: " + array);
+
+</script>
+</body>
+</html>

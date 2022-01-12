@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find V</title>
+</head>
+<body>
+<script>
+    let array = [-19, 4, -5, -67, 8, -95, 72, -52, 4, 2];
+    let V = parseInt(prompt("Nhập vào số V: "));
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === V) {
+            alert("V is in the array");
+            break;
+        }
+        if (i === array.length - 1) {
+            alert("V is not in the array");
+        }
+    }
+</script>
+</body>
+</html>

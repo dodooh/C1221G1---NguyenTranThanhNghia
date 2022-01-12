@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Descending Sort</title>
+</head>
+<body>
+<script>
+    let array = [-19, 4, -5, 67, 4, -95, 72, -12, 4, 2];
+    document.write("Mảng ban đầu: " + array);
+    document.write("<br>");
+    for (let i = 0; i < array.length - 1; i++) {
+        for (let j = array.length - 1; j > i; j--) {
+            if (array[j] > array[i]) {
+                let temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+    document.write("Mảng sau khi sắp xếp: " + array);
+
+</script>
+</body>
+</html>
