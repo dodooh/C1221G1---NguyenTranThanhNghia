@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digit Counter</title>
+</head>
+<body>
+<script>
+    let array = ['c', 's', '34', '2', '-6', '1'];
+    document.write("Mảng ban đầu: " + array);
+    document.write("<br>");
+    let count = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (!isNaN(array[i])) {
+            count++;
+        }
+    }
+    document.write("Số ký tự số trong mảng là: " + count);
+</script>
+</body>
+</html>

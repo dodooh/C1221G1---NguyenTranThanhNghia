@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thay Thế Kí Tự Trong Chuỗi</title>
+</head>
+<body>
+<script>
+    let chuoi = prompt("Nhập vào chuỗi VD: sadsd-dcas-asd-12-ddcs-da");
+    document.write("Chuỗi ban đầu: " + chuoi);
+    document.write("<br>");
+    for (let i = 0; i < chuoi.length; i++) {
+        if (chuoi[i] === "-") {
+            chuoi = chuoi.slice(0, i) + "_" + chuoi.slice(i + 1, chuoi.length);
+        }
+    }
+    // chuoi = chuoi.split('-').join("_");
+    document.write("Chuỗi sau: " + chuoi);
+</script>
+</body>
+</html>

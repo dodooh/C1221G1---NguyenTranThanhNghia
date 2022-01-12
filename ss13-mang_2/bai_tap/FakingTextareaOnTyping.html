@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking Textarea</title>
+</head>
+<body>
+<h1>Faking Textarea</h1>
+<textarea onkeydown="typing()" name="text" id="txtarea" cols="30" rows="10"></textarea>
+<script>
+    let textAreaObj = document.getElementById('txtarea');
+    const DUMPTEXT = "TÔI LÀ MỘT ĐỨA NGỐC!!!";
+    const LENGTH = 22;
+    let count = 0;
+    let str = "";
+
+    function typing() {
+        if (count === LENGTH) {
+            count = 0;
+            str = "";
+        } else {
+            str += DUMPTEXT[count];
+            count++;
+        }
+        textAreaObj.value = str;
+        // textAreaObj.value = textAreaObj.value.slice(0,textAreaObj.value.length-1);
+    }
+
+</script>
+</body>
+</html>
