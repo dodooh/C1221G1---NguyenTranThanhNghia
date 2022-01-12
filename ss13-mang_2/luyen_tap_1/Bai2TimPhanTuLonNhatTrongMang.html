@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Max</title>
+</head>
+<body>
+<script>
+    let array = [19, 4, 5, 67, 8, 95, 725, 52, 4, 2, 4, 56];
+    let maxIndex = 0;
+    let max = array[maxIndex];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+            maxIndex = i;
+        }
+    }
+    document.write("Phần tử lớn nhất là:  " + max + ". Ở vị trí thứ: " + maxIndex);
+</script>
+</body>
+</html>

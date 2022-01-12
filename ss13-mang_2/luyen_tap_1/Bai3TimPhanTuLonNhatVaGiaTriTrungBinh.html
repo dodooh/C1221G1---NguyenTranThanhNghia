@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Max & Average</title>
+</head>
+<body>
+<script>
+    let array = [19, 4, 5, 67, 8, 95, 72, 52, 4, 2, 4, 56];
+    let sum = 0;
+    let max = array[0];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+        sum += array[i];
+    }
+    document.write("Phần tử lớn nhất là:  " + max + ". Trung bình cộng các phần tử là: " + (sum / array.length));
+</script>
+</body>
+</html>

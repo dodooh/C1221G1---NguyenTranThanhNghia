@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Negatives</title>
+</head>
+<body>
+<script>
+    let array = [-19, 4, -5, -67, 8, -95, 72, -52, 4, 2, 56];
+    let first = 0;
+    let last = array.length - 1;
+    document.write("Mảng trước khi đảo ngược: " + array);
+    document.write("<br>")
+    while (first < last) {
+        let temp = array[first];
+        array[first] = array[last];
+        array[last] = temp;
+        first++;
+        last--;
+    }
+    document.write("Mảng sau khi đảo ngược: " + array);
+</script>
+</body>
+</html>
