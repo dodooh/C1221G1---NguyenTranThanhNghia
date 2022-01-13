@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Faking Textarea</h1>
-<textarea onkeydown="typing()" name="text" id="txtarea" cols="30" rows="10"></textarea>
+<textarea onkeydown="typing(event)" name="text" id="txtarea" cols="50" rows="10"></textarea>
 <script>
     let textAreaObj = document.getElementById('txtarea');
     const DUMPTEXT = "TÔI LÀ MỘT ĐỨA NGỐC!!!";
@@ -14,7 +14,8 @@
     let count = 0;
     let str = "";
 
-    function typing() {
+    function typing(event) {
+        event.preventDefault(); // Chặn sự kiện người dùng nhập input vào textarea
         if (count === LENGTH) {
             count = 0;
             str = "";
