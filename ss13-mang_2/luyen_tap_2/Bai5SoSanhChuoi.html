@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compare 2 Strings</title>
+</head>
+<body>
+<script>
+    let chuoiThu1 = prompt("Mời nhập vào chuỗi 1");
+    let chuoiThu2 = prompt("Mời nhập vào chuỗi 2");
+    document.write("Chuỗi 1: " + chuoiThu1);
+    document.write("<br>");
+    document.write("Chuỗi 2: " + chuoiThu2);
+    document.write("<br>");
+    let isEqual = true;
+    if (chuoiThu1.length !== chuoiThu2.length) {
+        isEqual = false;
+    } else {
+        let i = 0;
+        while (i < chuoiThu1.length) {
+            if (chuoiThu1[i] !== chuoiThu2[i]) {
+                isEqual = false;
+                break;
+            }
+            i++;
+        }
+    }
+    isEqual ? document.write(" 2 chuỗi bằng nhau") : document.write("2 chuỗi không bằng nhau");
+</script>
+</body>
+</html>

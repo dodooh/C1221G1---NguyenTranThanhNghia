@@ -7,8 +7,16 @@
 <body>
 <script>
     let str = prompt("Nhập vào một chuỗi để đếm từ");
-
-
+    document.write("Chuỗi ban đầu: " + str);
+    document.write("<br>");
+    // "hello viet nam"
+    let count = 1;
+    for (let char of str) {
+        if (char === " ") {
+            count++;
+        }
+    }
+    document.write("Số từ trong chuỗi là: " + count);
 </script>
 </body>
 </html>
