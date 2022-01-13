@@ -12,105 +12,81 @@
 <body>
 <h3>Tic Tac Toe</h3>
 <div id="boardgame"></div>
-<br>
-<input type="button" id="btnTurn" value="Đánh X" onclick="changeValue()">
 <script>
-    let boardHTML = document.getElementById("boardgame");
-    let buttonHTML = document.getElementById("btnTurn");
-    let board = [[".", ".", "."], [".", ".", "."], [".", ".", "."]];
-    let isNextX = true; // X lượt tiếp theo
+    const BOARDSIZE = 10; // 10 x 10
+    // let board = new Array(BOARDSIZE).fill(new Array(BOARDSIZE).fill(""));
+    // TODO : khởi tạo mảng board 2 chiều 10x10 với mỗi phần tử = ""
+    let board = new Array(BOARDSIZE);
+    for (let i = 0; i < BOARDSIZE; i++) {
+        board[i] = new Array(BOARDSIZE);
+        for (let j = 0; j < BOARDSIZE; j++) {
+            board[i][j] = "";
+        }
+    }
 
+    // TODO - isNextX (true => lượt tiếp theo là "X", false => lượt tiếp theo là "O")
+    let isNextX = true; // X lượt tiếp theo
+    // TODO : cập nhật bảng ra HTML
     function show() {
         let hienThi = "";
         hienThi += "<table border='2'>";
         // console.log(board);
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < BOARDSIZE; i++) {
             hienThi += "<tr>";
-            for (let j = 0; j < 3; j++) {
-                hienThi += "<td>" + board[i][j] + "</td>";
+            for (let j = 0; j < BOARDSIZE; j++) {
+                hienThi += '<td style="width: 25px;height: 25px" onclick="tick(' + i + ',' + j + ')">' + board[i][j] + '</td>';
             }
             hienThi += "</tr>";
         }
         hienThi += "</table>";
-        return hienThi;
+        document.getElementById("boardgame").innerHTML = hienThi;
     }
 
-    // console.log(hienThi);
-    boardHTML.innerHTML = show();
-
-    function changeValue() {
-        let x;
-        let y;
+    show();
+    /* TODO - Cập nhật board lần lượt "X" hoặc "O" theo vị trí click.
+            - Hiển thị bảng mới
+            - Kiểm tra chiến thắng
+            - Nếu true => alert (chiến thắng)
+            - Nếu false => toggle isNextX
+    */
+    function tick(x, y) {
         let s; // "X" or "O"
-        //validate x y
-        do {
-            x = parseInt(prompt("Nhạp x"));
-            y = parseInt(prompt("Nhập y"));
-        } while (x < 0 || x > 2 || y < 0 || y > 2);
         // thay đổi giá trị X hoặc O trong mảng board
-        if (board[x][y] === '.') {
+        if (board[x][y] == "") {
             if (isNextX) {
                 s = "X";
-                buttonHTML.value = "Đến lượt O";
             } else {
                 s = "O";
-                buttonHTML.value = "Đến lượt X";
             }
             board[x][y] = s;
-            boardHTML.innerHTML = show(); // update board game
-            if (checkWin(x, y, s)) {
+            show(); // cập nhật bảng
+            if (kiemTraChienThang(s)) {
                 alert(s + " WIN");
-                buttonHTML.disabled = true;
             } else {
-                isNextX = !isNextX;
+                isNextX = !isNextX; // toggle "X" <-> "O"
             }
         } else {
             alert("Ô này đã đánh. Không thể ghi đè");
         }
-        // toggle x -> o hoặc o -> x
     }
-    // Trả về true nếu s thắng
-    // Trả về fasle nếu check tất cả điều kiện false
-    function checkWin(x, y, s) {
-        //[0][0] && [0][1] && [0][2]
-        //[1][0] && [1][1] && [1][2]
-        //[2][0] && [2][1] && [2][2]
-        for (let i = 0; i < 3; i++) {
-            if (board[x][i] !== s) {
-                break;
-            }
-            if (i === 2) {
-                return true;
-            }
-        }
-        //[0][0] && [1][0] && [2][0]
-        //[0][1] && [1][1] && [2][1]
-        //[0][2] && [1][2] && [2][2]
-        for (let i = 0; i < 3; i++) {
-            if (board[i][y] !== s) {
-                break;
-            }
-            if (i === 2) {
-                return true;
-            }
-        }
-        //[0][0] && [1][1] && [2][2]
-        if (x === y) {
-            for (let i = 0; i < 3; i++) {
-                if (board[i][i] !== s)
-                    break;
-                if (i === 2) {
-                    return true;
-                }
-            }
-        }
-        //[0][2] && [1][1] && [2][0]
-        if (x + y === 2) {
-            for (let i = 0; i < 3; i++) {
-                if (board[i][2 - i] !== s)
-                    break;
-                if (i === 2) {
-                    return true;
+
+    // TODO : kiểm tra sau mỗi lần người chơi tick. Nếu thắng -> true, chưa thắng -> false
+    function kiemTraChienThang(char) {
+        for (let i = 0; i < BOARDSIZE; i++) {
+            for (let j = 0; j < BOARDSIZE; j++) {
+                if (board[i][j] === char) {
+                    if (board[i][j + 1] === char && board[i][j + 2] === char) {
+                        return true;
+                    }
+                    if (board[i + 1][j] === char && board[i + 2][j] === char) {
+                        return true;
+                    }
+                    if (board[i + 1][j - 1] === char && board[i + 2][j - 2] === char) {
+                        return true;
+                    }
+                    if (board[i + 1][j + 1] === char && board[i + 2][j + 2] === char) {
+                        return true;
+                    }
                 }
             }
         }
