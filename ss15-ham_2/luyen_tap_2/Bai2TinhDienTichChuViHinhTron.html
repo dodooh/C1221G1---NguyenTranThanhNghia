@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Chu Vi Diện Tích hình tròn</title>
+</head>
+<body>
+<script>
+    function tinhDienTichHinhTron(banKinh) {
+        return banKinh * banKinh * Math.PI;
+    }
+    function tinhChiViHinhTron(banKinh) {
+        return banKinh * 2 * Math.PI;
+    }
+
+    let x = 3;
+    document.write(" diện tích hình tròn bán kính "+ x + " là " + tinhDienTichHinhTron(x));
+    document.write("<br>");
+    document.write(" chi vi hình tròn bán kính "+ x + " là " + tinhChiViHinhTron(x));
+</script>
+</body>
+</html>

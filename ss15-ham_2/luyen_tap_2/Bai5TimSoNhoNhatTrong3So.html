@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find min</title>
+</head>
+<body>
+<script>
+    function timSoNhoNhat(a, b, c) {
+        if (a < b && a < c) {
+            return a;
+        } else if (b < c) {
+            return b;
+        }
+        return c;
+    }
+
+    let soThu1 = prompt("Nhập số thứ 1");
+    let soThu2 = prompt("Nhập số thứ 2");
+    let soThu3 = prompt("Nhập số thứ 1");
+    document.write("Số nhỏ nhất trong 3 số: " + soThu1 + "," + soThu2 + "," + soThu3 + " là:" + timSoNhoNhat(soThu1, soThu2, soThu3));
+</script>
+</body>
+</html>
