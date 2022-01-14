@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alert Message</title>
+</head>
+<body>
+<script>
+    let chomSao1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let chomSao2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+    function timSao(saoCanTim) {
+        if (chomSao1.indexOf(saoCanTim) == -1) {
+            return "Không tìm thấy";
+        } else {
+            return chomSao2[chomSao1.indexOf(saoCanTim)];
+        }
+    }
+
+    let sao = prompt("Nhập vào ngôi sao: ");
+    document.write(timSao(sao));
+</script>
+</body>
+</html>
