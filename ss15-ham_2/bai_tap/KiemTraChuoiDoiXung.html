@@ -9,7 +9,7 @@
     function kiemTraChuoiDoiXung(str) {
         let first = 0;
         let last = str.length - 1;
-        while(first < last) {
+        while (first < last) {
             if (str[first] !== str[last]) {
                 return false;
             }
@@ -18,13 +18,14 @@
         }
         return true;
     }
+
     // "aaabbbbaaa"
     // ""
     // "112x211"
     // "112xx211"
     // "112xxc211"
-    let check = "112xx211"
-    alert(kiemTraChuoiDoiXung(check))
+    let check = "112xx211";
+    alert(kiemTraChuoiDoiXung(check));
 </script>
 </body>
 </html>
