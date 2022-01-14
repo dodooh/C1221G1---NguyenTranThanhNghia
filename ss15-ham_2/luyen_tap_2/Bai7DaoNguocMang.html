@@ -6,11 +6,19 @@
 </head>
 <body>
 <script>
+    let soA = {value: 9};
+    let soB = {value: 5};
+
     function swap(num1, num2) {
-        let temp = num1;
-        num1 = num2;
-        num2 = temp;
+        let temp = num1.value;
+        num1.value = num2.value;
+        num2.value = temp;
     }
+    console.log(soA)
+    document.write("Trước khi đổi: số A= " + soA.value + ", số B= " + soB.value);
+    document.write("<br>");
+    swap(soA, soB);
+    document.write("Trước khi đổi: số A= " + soA.value + ", số B= " + soB.value);
 
 
 </script>
