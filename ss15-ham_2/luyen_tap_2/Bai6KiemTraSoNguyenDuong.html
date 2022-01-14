@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên dương</title>
+</head>
+<body>
+<script>
+    function kiemTraSoNguyenDuong(number) {
+        if (parseInt(number) != number) {
+            return false;
+        } else if (number <= 0) {
+            return false;
+        }
+        return true;
+    }
+
+    let input = prompt("Nhập vào một số: ");
+    if (kiemTraSoNguyenDuong(input)) {
+        document.write(input + " là số nguyên dương");
+    } else {
+        document.write(input + " không phải là số nguyên dương");
+    }
+</script>
+</body>
+</html>
