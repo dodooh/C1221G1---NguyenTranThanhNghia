@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>swap</title>
+</head>
+<body>
+<script>
+    function daoNguoc(arr) {
+        let first = 0;
+        let last = arr.length - 1;
+        while (first < last) {
+            let temp = arr[first];
+            arr[first] = arr[last];
+            arr[last] = temp;
+            first++;
+            last--;
+        }
+    }
+
+    let array = [1, 2, 3, 4, 5, 6, 7];
+    document.write("Mảng lúc đầu là " + array);
+    document.write("<br>");
+    daoNguoc(array);
+    document.write("Mảng lúc sau là " + array);
+</script>
+</body>
+</html>
