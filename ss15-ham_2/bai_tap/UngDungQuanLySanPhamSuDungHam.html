@@ -3,12 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>QLSP</title>
+    <style>
+        button {
+            height: 40px;
+            width: auto;
+            padding: 5px 20px;
+            background-color: green;
+            color: white;
+            border-radius: 10px;
+            border: none;
+        }
+
+        #input {
+            height: 40px;
+        }
+
+        #edit {
+            background-color: #FFB300;
+        }
+
+        #remove {
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
 <form>
     <h3>Add New Product</h3>
     <label for="input"></label>
-    <input type="text" id="input" size="50" height="30px" placeholder="New Product">
+    <input type="text" id="input" size="50" placeholder="New Product">
     <button type="button" onclick="themSanPham()">Add</button>
 </form>
 <div>
@@ -22,13 +45,13 @@
     function hienThiDanhSachSanPham() {
         let show = "<table border='2'>";
         show += "<tr>";
-        show += "<td >Product Name</td>";
-        show += "<td colspan='2'>" + danhSachSanPham.length + " products</td>";
+        show += "<th>Product Name</th>";
+        show += "<th colspan='2'>" + danhSachSanPham.length + " products</th>";
         for (let i = 0; i < danhSachSanPham.length; i++) {
             show += "<tr>";
             show += "<td style='width: 300px; height: 30px'>" + danhSachSanPham[i] + "</td>";
-            show += "<td><button type='button' onclick='suaSanPham(" + i + ")'>Edit</button></td>";
-            show += "<td><button type='button' onclick='xoaSanPham(" + i + ")'>Remove</button></td>";
+            show += "<td><button id='edit' type='button' onclick='suaSanPham(" + i + ")'>Edit</button></td>";
+            show += "<td><button id='remove' type='button' onclick='xoaSanPham(" + i + ")'>Remove</button></td>";
             show += "</tr>";
         }
         show += "</table>";
@@ -52,6 +75,7 @@
         hienThiDanhSachSanPham();
         document.getElementById("input").value = "";
     }
+
     hienThiDanhSachSanPham();
 </script>
 </body>
