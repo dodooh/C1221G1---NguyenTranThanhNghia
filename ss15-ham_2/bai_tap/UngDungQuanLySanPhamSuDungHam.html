@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QLSP</title>
+</head>
+<body>
+<form>
+    <h3>Add New Product</h3>
+    <label for="input"></label>
+    <input type="text" id="input" size="50" height="30px" placeholder="New Product">
+    <button type="button" onclick="themSanPham()">Add</button>
+</form>
+<div>
+    <h3>Display All Products</h3>
+    <div id="list-product"></div>
+</div>
+<script>
+    let danhSachSanPham = ["a"];
+
+
+    function hienThiDanhSachSanPham() {
+        let show = "<table border='2'>";
+        show += "<tr>";
+        show += "<td >Product Name</td>";
+        show += "<td colspan='2'>" + danhSachSanPham.length + " products</td>";
+        for (let i = 0; i < danhSachSanPham.length; i++) {
+            show += "<tr>";
+            show += "<td style='width: 300px; height: 30px'>" + danhSachSanPham[i] + "</td>";
+            show += "<td><button type='button' onclick='suaSanPham(" + i + ")'>Edit</button></td>";
+            show += "<td><button type='button' onclick='xoaSanPham(" + i + ")'>Remove</button></td>";
+            show += "</tr>";
+        }
+        show += "</table>";
+        document.getElementById("list-product").innerHTML = show;
+    }
+
+    function suaSanPham(index) {
+        let sanPhamMoi = prompt("Nhập vào tên sản phẩm mới: ");
+        danhSachSanPham[index] = sanPhamMoi;
+        hienThiDanhSachSanPham();
+    }
+
+    function xoaSanPham(index) {
+        danhSachSanPham.splice(index, 1);
+        hienThiDanhSachSanPham();
+    }
+
+    function themSanPham() {
+        let productName = document.getElementById("input").value;
+        danhSachSanPham.push(productName);
+        hienThiDanhSachSanPham();
+        document.getElementById("input").value = "";
+    }
+    hienThiDanhSachSanPham();
+</script>
+</body>
+</html>
