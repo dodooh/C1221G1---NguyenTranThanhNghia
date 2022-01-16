@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuan Hoa Ten</title>
+</head>
+<body>
+<script>
+    let s = "    tRuonG    tAn  Hai   ";
+
+    function chuanHoa(s) {
+        // Xu ly dau cach dau cau
+        while (s[0] === " ") {
+            s = s.substring(1);
+        }
+        // Xu ly dau cach cuoi cau
+        while (s[s.length - 1] === " ") {
+            s = s.substring(0, s.length - 1);
+        }
+        // Xu ly cau cach giua cau
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] === " " && s[i + 1] === " ") {
+                s = s.substring(0, i) + s.substring(i + 1, s.length);
+                i--;
+            }
+        }
+        // Chuan hoa chuoi -> lowercase
+        s = s.toLowerCase();
+        // UPPERCASE chu cai dau moi tu
+        s = s[0].toUpperCase() + s.substring(1, s.length);
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] === " ") {
+                s = s.substring(0, i + 1) + s[i + 1].toUpperCase() + s.substring(i + 2, s.length);
+            }
+        }
+        return s;
+    }
+
+    document.write(chuanHoa(s));
+
+</script>
+</body>
+</html>

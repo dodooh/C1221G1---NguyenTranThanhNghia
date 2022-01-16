@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ve Hinh Chu Nhat</title>
+</head>
+<body>
+<script>
+    let result = "";
+    let chieuCao = parseInt(prompt("Nhap chieu cao:"));
+    let chieuRong = parseInt(prompt("Nhap chieu rong:"));
+    for (let doc = 0; doc < chieuCao; doc++) {
+        for (let ngang = 0; ngang < chieuRong; ngang++) {
+            if (doc === 0 || doc === chieuCao - 1 || ngang === 0 || ngang === chieuRong - 1) {
+                result += "*";
+            } else {
+                result += " ";
+            }
+        }
+        result += "\n";
+    }
+    console.log(result);
+</script>
+</body>
+</html>

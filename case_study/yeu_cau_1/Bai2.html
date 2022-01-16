@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ve Tam Giac Vuong</title>
+</head>
+<body>
+<script>
+    let result = "";
+    let chieuCao = parseInt(prompt("Nhap Chieu cao:"));
+    for (let doc = 0; doc < chieuCao; doc++) {
+        for (let ngang = 0; ngang <= doc; ngang++) {
+            if (doc === chieuCao - 1 || ngang === 0 || ngang === doc) {
+                result += "*";
+            } else {
+                result += " ";
+            }
+
+        }
+        result += "\n";
+    }
+    console.log(result);
+</script>
+</body>
+</html>

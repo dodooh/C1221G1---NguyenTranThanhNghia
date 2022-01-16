@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<script>
+    let menu = "1. Cafe: 10k\n" +
+        "2. Cam vắt: 15k\n" +
+        "3. Nước ép cà rốt: 16k\n" +
+        "4. Nước ép cà chua: 17k\n" +
+        "5. Nước lọc: 5k\n" +
+        "6. Nước dừa: 12k\n" +
+        "7. Thoát\n";
+    let userChoice;
+    let total = 0;
+    do {
+        userChoice = parseInt(prompt(menu));
+        if (userChoice === 7) {
+            continue;
+        }
+        let soLuong = parseInt(prompt("Nhập số lượng: "));
+        switch (userChoice) {
+            case 1:
+                total += soLuong * 10000;
+                break;
+            case 2:
+                total += soLuong * 15000;
+                break;
+            case 3:
+                total += soLuong * 16000;
+                break;
+            case 4:
+                total += soLuong * 17000;
+                break;
+            case 5:
+                total += soLuong * 5000;
+                break;
+            case 6:
+                total += soLuong * 12000;
+                break;
+            default:
+                alert("Chọn món sai. Thử lại giùm");
+                break;
+        }
+        console.log(total);
+    } while (userChoice !== 7);
+    alert("Tổng thiệt hại: " + total.toLocaleString());
+</script>
+</body>
+</html>

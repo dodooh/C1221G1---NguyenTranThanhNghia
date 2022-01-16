@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Thue</title>
+</head>
+<body>
+<script>
+    let luong = parseInt(prompt("Nhập lương: "));
+    let rate;
+    if (luong > 15000000) {
+        rate = .2;
+    } else if (luong > 7000000) {
+        rate = .1;
+    } else {
+        rate = .05;
+    }
+    let thucNhan = luong * ( 1 - rate);
+    alert("Lương thực nhận là: " + thucNhan);
+</script>
+</body>
+</html>

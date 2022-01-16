@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ki Tu Chung Cua 2 Xau</title>
+</head>
+<body>
+<script>
+    let s1 = "aabcca";
+    let s2 = "bcsaacs";
+
+    function commonCharacterCount(s1, s2) {
+        let count = 0;
+        for(let char1 of s1) {
+            for(let i = 0; i < s2.length; i++) {
+                if(char1 === s2[i]) {
+                    s2 = s2.replace(char1, "");
+                    count++;
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+
+    document.write(commonCharacterCount(s1, s2));
+</script>
+</body>
+</html>

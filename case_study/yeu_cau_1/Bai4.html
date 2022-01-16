@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ve Tam Giac Can Rong</title>
+</head>
+<body>
+<script>
+    let result = "";
+    let chieuCao = parseInt(prompt("Nhap Chieu cao:"));
+    for (let doc = 0; doc < chieuCao; doc++) {
+        for (let space = 0; space < chieuCao - doc + 1; space++) { // ve khoang cach
+            result += " ";
+        }
+        for (let star = 0; star < 2 * doc + 1; star++) {
+            if (star === 0 || star === 2 * doc || doc == chieuCao  - 1) {
+                result += "*"
+            } else {
+                result += " ";
+            }
+        }
+        result += "\n";
+    }
+    console.log(result);
+</script>
+</body>
+</html>

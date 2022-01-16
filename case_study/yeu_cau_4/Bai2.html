@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xau Ki Tu</title>
+</head>
+<body>
+<script>
+    let s = "";
+
+    function differentSymbolsNaive(s) {
+        if (s.length < 1) {
+            return 0;
+        }
+        let checked = s[0]; // Lưu các chữ cái đã xuát hiện
+        let count = 1;
+        for (let i = 1; i < s.length; i++) {
+            let isDuplicate = false; // Kiểm tra đã xuất hiện trong chuỗi checked chưa
+            for (let j = 0; j < checked.length; j++) {
+                if (s[i] === checked[j]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if (!isDuplicate) { // nếu chưa => chữ mới
+                count++;
+                checked += s[i];
+            }
+        }
+        return count;
+    }
+
+    document.write(differentSymbolsNaive(s));
+</script>
+</body>
+</html>

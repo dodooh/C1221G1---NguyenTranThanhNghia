@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+<script>
+    let number = 1287634;
+
+    function numToString(num) {
+        let str = num.toString();
+        let result = "";
+        for (let i of str) {
+            switch (i) {
+                case "1":
+                    result += "một";
+                    break;
+                case "2":
+                    result += "hai";
+                    break;
+                case "3":
+                    result += "ba";
+                    break;
+                case "4":
+                    result += "bốn";
+                    break;
+                case "5":
+                    result += "năm";
+                    break;
+                case "6":
+                    result += "sáu";
+                    break;
+                case "7":
+                    result += "bảy";
+                    break;
+                case "8":
+                    result += "tám";
+                    break;
+                case "9":
+                    result += "chín";
+                    break;
+                case "0":
+                    result += "không";
+                    break;
+            }
+            result += " ";
+        }
+        return result;
+    }
+
+    console.log(numToString(number));
+</script>
+</body>
+</html>

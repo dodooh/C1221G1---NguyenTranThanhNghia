@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng số chẳn trong ma trận</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt("Nhập m: "));
+    let n = parseInt(prompt("Nhập n: "));
+    let arr = new Array(m);
+    let sum = 0;
+    for (let i = 0; i < m; i++) {
+        arr[i] = new Array(n);
+        for (let j = 0; j < n; j++) {
+            arr[i][j] = parseInt(prompt("Nhập phần tử dòng " + i + " cột " + j));
+            if (arr[i][j] % 2 == 0) {
+                sum += arr[i][j];
+            }
+        }
+    }
+    document.write(arr);
+    document.write("<br>");
+    document.write(sum);
+</script>
+</body>
+</html>

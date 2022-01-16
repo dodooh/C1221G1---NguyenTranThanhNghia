@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu Cau 3 - Bai 1</title>
+</head>
+<body>
+<script>
+
+    function prefixSums(arr) {
+        let b = [];
+        for (let i = 0; i < arr.length; i++) {
+            let sum = 0;
+            for (let j = 0; j <= i; j++) {
+                sum += arr[j];
+            }
+            b[i] = sum;
+        }
+        return b;
+    }
+
+    console.log(prefixSums([1, 2, 3, 4]));
+</script>
+</body>
+</html>
