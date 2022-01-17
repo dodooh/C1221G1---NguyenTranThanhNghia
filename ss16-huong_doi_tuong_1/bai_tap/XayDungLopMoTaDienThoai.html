@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile</title>
+</head>
+<body>
+<script>
+    function Mobile() {
+        this.battery = 100;
+        this.draft = "";
+        this.sent = [];
+        this.inbox = [];
+        this.isOn = false;
+        this.checkBattery = function () {
+            return this.battery;
+        };
+        this.decreaseBattery = function () {
+            this.battery--;
+            if (this.battery === 0) {
+                this.isOn = false;
+            }
+        };
+        this.checkOnOff = function () {
+            return this.isOn;
+        };
+        this.turnOn = function () {
+            this.decreaseBattery();
+            if (this.battery !== 0) {
+                this.isOn = true;
+            }
+        };
+        this.turnOff = function () {
+            this.decreaseBattery();
+            this.isOn = false;
+        };
+        this.charge = function () {
+            this.battery = 100;
+        };
+        this.texting = function (message) {
+            this.decreaseBattery();
+            if (this.isOn) {
+                this.draft = message;
+            }
+        };
+        this.receiveFrom = function (anotherPhone) {
+            this.decreaseBattery();
+            if (this.isOn) {
+                this.inbox.push(anotherPhone.draft);
+
+            }
+        };
+        this.sendTo = function (anotherPhone) {
+            this.decreaseBattery();
+            if (this.isOn) {
+                this.sent.push(this.draft);
+                anotherPhone.inbox.push(this.draft);
+            }
+        };
+        this.checkSent = function () {
+            this.decreaseBattery();
+            if (this.isOn) {
+                document.write("Tin nhan da gui di:");
+                document.write("<br>");
+                for (let value of this.sent) {
+                    document.write(value);
+                    document.write("<br>");
+                }
+            }
+        };
+        this.checkInbox = function () {
+            this.decreaseBattery();
+            if (this.isOn) {
+                document.write("Tin nhan da nhan:");
+                document.write("<br>");
+                for (let value of this.inbox) {
+                    document.write(value);
+                    document.write("<br>");
+                }
+            }
+        };
+
+    }
+
+    let nokia = new Mobile();
+    let iphone = new Mobile();
+    nokia.turnOn();
+    iphone.turnOn();
+    nokia.texting("day la tin nhan gui tu nokia sang iphone");
+    nokia.sendTo(iphone);
+    nokia.checkSent();
+    iphone.checkInbox();
+    document.write("check nokia battery: " + nokia.checkBattery());
+    document.write("<br>");
+    document.write("check iphone battery: " + iphone.checkBattery());
+    document.write("<br>");
+
+    document.write("charge nokia battery");
+    document.write("<br>");
+    nokia.charge();
+    document.write("check nokia battery: " + nokia.checkBattery());
+
+
+</script>
+</body>
+</html>

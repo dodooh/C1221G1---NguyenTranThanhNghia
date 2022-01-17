@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temparature</title>
+</head>
+<body>
+<script>
+    function Temperature(C) {
+        this.C = C;
+        this.getCelsius = function () {
+            return this.C
+        }
+        this.toFahrenheit = function () {
+            return this.C * 9 / 5 + 32;
+        };
+        this.toKelvin = function () {
+            return this.C + 273.15;
+        };
+    }
+
+    let doC = new Temperature(25);
+    document.write(doC.getCelsius() + " độ C = " + doC.toFahrenheit() + " độ F");
+    document.write("<br>")
+    document.write(doC.getCelsius() + " độ C = " + doC.toKelvin() + " độ K");
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class Rectangle</title>
+</head>
+<body>
+<canvas width="1024px" height="768px" id="myCanvas"></canvas>
+<script>
+    function Rectangle(height, width) {
+        this.height = height;
+        this.width = width;
+        this.setHeight = function (height) {
+            this.height = height;
+        };
+        this.setWidth = function (width) {
+            this.width = width;
+        };
+        this.getArea = function () {
+            return this.height * this.width;
+        };
+        this.getPerimeter = function () {
+            return 2 * (this.height + this.width);
+        };
+        this.draw = function () {
+            let c = document.getElementById("myCanvas");
+            let ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.rect(20, 20, this.height, this.width);
+            ctx.stroke();
+        };
+
+    }
+
+    let rect = new Rectangle(300, 200);
+    rect.draw();
+    alert("Diện tích hình chữ nhật là: " + rect.getArea());
+    alert("Chu vi hình chữ nhật là: " + rect.getPerimeter());
+    rect.setHeight(200);
+    rect.setWidth(50);
+    rect.draw();
+    alert("Diện tích hình chữ nhật là: " + rect.getArea());
+    alert("Chu vi hình chữ nhật là: " + rect.getPerimeter());
+
+</script>
+</body>
+</html>

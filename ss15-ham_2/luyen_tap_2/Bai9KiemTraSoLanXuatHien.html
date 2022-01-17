@@ -9,7 +9,7 @@
     function kiemTraSoLanXuatHien(array, n) {
         let count = 0;
         for (let value of array) {
-            if (value === n) {
+            if (value == n) {
                 count++;
             }
         }
@@ -18,7 +18,7 @@
     }
 
     let arr = [2, 3, 4, 5, 5, 4, 7, 7, 7, 5, 4, 3];
-    let num = 0;
+    let num = "7";
     let soLan = kiemTraSoLanXuatHien(arr, num);
     if (soLan == -1) {
         document.write(num + " không xuất hiện trong mảng");
