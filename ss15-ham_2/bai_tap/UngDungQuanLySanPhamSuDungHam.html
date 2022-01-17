@@ -65,13 +65,22 @@
     }
 
     function xoaSanPham(index) {
-        danhSachSanPham.splice(index, 1);
+        let cfm = confirm("Bạn có muốn xóa không?");
+        if (cfm) {
+            danhSachSanPham.splice(index, 1);
+        } else {
+            alert("Bạn đã không xóa");
+        }
         hienThiDanhSachSanPham();
     }
 
     function themSanPham() {
         let productName = document.getElementById("input").value;
-        danhSachSanPham.push(productName);
+        if (productName === "") {
+            alert("Vui lòng nhập tên sản phẩm");
+        } else {
+            danhSachSanPham.push(productName);
+        }
         hienThiDanhSachSanPham();
         document.getElementById("input").value = "";
     }
