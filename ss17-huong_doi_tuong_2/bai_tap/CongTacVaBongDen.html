@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch & Button</title>
+</head>
+<body>
+<script>
+    class ElectricLamp {
+        constructor() {
+            this.status = false;
+        }
+
+        turnOff() {
+            console.log("đèn tắt");
+            this.status = false;
+        }
+
+        turnOn() {
+            console.log("đèn bật");
+            this.status = true;
+        }
+    }
+
+    class SwitchButton {
+        constructor() {
+            this.status = false;
+            this.Lamp = null;
+        }
+
+        connectToLamp(Lamp) {
+            this.Lamp = Lamp;
+        }
+
+        switchOff() {
+            console.log("Tắt công tắc");
+            this.status = false;
+            this.Lamp.turnOff();
+        }
+
+        switchOn() {
+            console.log("Bật công tắc");
+            this.status = true;
+            this.Lamp.turnOn();
+        }
+
+    }
+
+    let bongDen = new ElectricLamp();
+    let congTac = new SwitchButton();
+    congTac.connectToLamp(bongDen);
+
+    congTac.switchOff();
+    congTac.switchOn();
+    congTac.switchOff();
+    congTac.switchOn();
+    congTac.switchOff();
+    congTac.switchOn();
+    congTac.switchOff();
+    congTac.switchOn();
+    congTac.switchOff();
+    congTac.switchOn();
+</script>
+</body>
+</html>
