@@ -6,58 +6,69 @@
 </head>
 <body>
 <script>
-    function Mobile() {
-        this.battery = 100;
-        this.draft = "";
-        this.sent = [];
-        this.inbox = [];
-        this.isOn = false;
-        this.checkBattery = function () {
+    class Mobile {
+        constructor() {
+            this.battery = 100;
+            this.draft = "";
+            this.sent = [];
+            this.inbox = [];
+            this.isOn = false;
+        }
+
+        checkBattery = function () {
             return this.battery;
         };
-        this.decreaseBattery = function () {
+        decreaseBattery = function () {
             this.battery--;
             if (this.battery === 0) {
                 this.isOn = false;
             }
         };
-        this.checkOnOff = function () {
+
+        checkOnOff() {
             return this.isOn;
-        };
-        this.turnOn = function () {
+        }
+
+        turnOn() {
             this.decreaseBattery();
             if (this.battery !== 0) {
                 this.isOn = true;
             }
         };
-        this.turnOff = function () {
+
+        turnOff() {
             this.decreaseBattery();
             this.isOn = false;
         };
-        this.charge = function () {
+
+        charge() {
             this.battery = 100;
         };
-        this.texting = function (message) {
+
+        texting(message) {
             this.decreaseBattery();
             if (this.isOn) {
                 this.draft = message;
             }
         };
-        this.receiveFrom = function (anotherPhone) {
+
+        receiveFrom(anotherPhone) {
             this.decreaseBattery();
             if (this.isOn) {
                 this.inbox.push(anotherPhone.draft);
 
             }
         };
-        this.sendTo = function (anotherPhone) {
+
+        sendTo(anotherPhone) {
             this.decreaseBattery();
             if (this.isOn) {
                 this.sent.push(this.draft);
                 anotherPhone.inbox.push(this.draft);
             }
         };
-        this.checkSent = function () {
+
+        checkSent() {
             this.decreaseBattery();
             if (this.isOn) {
                 document.write("Tin nhan da gui di:");
@@ -68,7 +79,8 @@
                 }
             }
         };
-        this.checkInbox = function () {
+
+        checkInbox() {
             this.decreaseBattery();
             if (this.isOn) {
                 document.write("Tin nhan da nhan:");
@@ -94,7 +106,7 @@
     document.write("<br>");
     document.write("check iphone battery: " + iphone.checkBattery());
     document.write("<br>");
-    iphone.turnOff()
+    iphone.turnOff();
     iphone.checkOnOff();
     document.write("charge nokia battery");
     document.write("<br>");

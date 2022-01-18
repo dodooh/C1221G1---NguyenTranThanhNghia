@@ -7,22 +7,25 @@
 <body>
 <canvas width="1024px" height="768px" id="myCanvas"></canvas>
 <script>
-    function Rectangle(height, width) {
-        this.height = height;
-        this.width = width;
-        this.setHeight = function (height) {
+    class Rectangle {
+        constructor(height, width) {
+            this.height = height;
+            this.width = width;
+        }
+
+        setHeight(height) {
             this.height = height;
         };
-        this.setWidth = function (width) {
+        setWidth(width) {
             this.width = width;
         };
-        this.getArea = function () {
+        getArea() {
             return this.height * this.width;
         };
-        this.getPerimeter = function () {
+        getPerimeter() {
             return 2 * (this.height + this.width);
         };
-        this.draw = function () {
+        draw() {
             let c = document.getElementById("myCanvas");
             let ctx = c.getContext("2d");
             ctx.beginPath();

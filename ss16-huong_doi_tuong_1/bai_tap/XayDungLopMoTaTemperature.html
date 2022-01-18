@@ -6,20 +6,23 @@
 </head>
 <body>
 <script>
-    function Temperature(C) {
-        this.C = C;
-        this.getCelsius = function () {
+    class Temperature {
+        constructor(C) {
+            this.C = C;
+
+        }
+        getCelsius() {
             return this.C
         }
-        this.toFahrenheit = function () {
+        toFahrenheit() {
             return this.C * 9 / 5 + 32;
         };
-        this.toKelvin = function () {
+        toKelvin() {
             return this.C + 273.15;
         };
     }
 
-    let doC = new Temperature(25);
+    let doC = new Temperature(60);
     document.write(doC.getCelsius() + " độ C = " + doC.toFahrenheit() + " độ F");
     document.write("<br>")
     document.write(doC.getCelsius() + " độ C = " + doC.toKelvin() + " độ K");
