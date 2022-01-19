@@ -52,19 +52,22 @@
             }
         };
 
-        receiveFrom(anotherPhone) {
+        receiveFrom(message) {
             this.decreaseBattery();
             if (this.isOn) {
-                this.inbox.push(anotherPhone.draft);
+                this.inbox.push(message);
 
             }
         };
 
-        sendTo(anotherPhone) {
+        sendTo(anotherPhone, message) {
             this.decreaseBattery();
             if (this.isOn) {
+                this.draft = message;
+                // this.sent = [];
                 this.sent.push(this.draft);
-                anotherPhone.inbox.push(this.draft);
+                this.draft = "";
+                anotherPhone.receiveFrom(this.sent[this.sent.length - 1]);
             }
         };
 
@@ -98,20 +101,13 @@
     let iphone = new Mobile();
     nokia.turnOn();
     iphone.turnOn();
-    nokia.texting("day la tin nhan gui tu nokia sang iphone");
-    nokia.sendTo(iphone);
+
+    nokia.sendTo(iphone, "day la tin nhan 1 gui tu nokia sang iphone");
     nokia.checkSent();
     iphone.checkInbox();
-    document.write("check nokia battery: " + nokia.checkBattery());
-    document.write("<br>");
-    document.write("check iphone battery: " + iphone.checkBattery());
-    document.write("<br>");
-    iphone.turnOff();
-    iphone.checkOnOff();
-    document.write("charge nokia battery");
-    document.write("<br>");
-    nokia.charge();
-    document.write("check nokia battery: " + nokia.checkBattery());
+    nokia.sendTo(iphone, "day la tin nhan 2 gui tu nokia sang iphone");
+    nokia.checkSent();
+    iphone.checkInbox();
 
 
 </script>

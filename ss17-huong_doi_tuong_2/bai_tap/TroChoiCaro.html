@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caro</title>
+    <style>
+        .cell {
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: #FF4C00;
+            border: 2px solid #0433FF;
+        }
+    </style>
+</head>
+<body>
+<div id="game-board"></div>
+<script>
+    const CELL_SIZE = 40;
+    const MAX_COLUMN = 16;
+    const MAX_ROW = 16;
+    const TICK_X = 'X';
+    const TICK_O = 'O';
+    const EMPTY = "";
+
+    class Cell {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.tick = EMPTY;
+        }
+
+        isEmpty() {
+            return this.tick === EMPTY;
+        }
+
+        setTick(symbol) {
+            this.tick = symbol;
+        }
+
+        getCellHTML() {
+            let cellHTML = "<div class='cell' id='cell-" + this.x + "-" + this.y + "' onclick='tick("
+                + this.x + "," + this.y + ")'style='top: " + this.y * CELL_SIZE + "px;left: " + this.x * CELL_SIZE + "px;height: " + CELL_SIZE + "px; width:" + CELL_SIZE + "px; line-height: " + CELL_SIZE + "px; position: absolute'>"
+                + this.tick
+                + "</div>";
+            return cellHTML;
+        }
+
+        update() {
+            let cellDOM = document.getElementById("cell-" + this.x + "-" + this.y);
+            if (this.tick === TICK_O) {
+                cellDOM.innerHTML = TICK_O;
+            } else if (this.tick === TICK_X) {
+                cellDOM.innerHTML = TICK_X;
+            } else {
+                cellDOM.innerHTML = EMPTY;
+            }
+        }
+    }
+
+    class Board {
+        constructor() {
+            this.cells = [];
+            this.isNextX = true;
+            this.isStop = false;
+        }
+
+        printBoard() {
+            let gameBoardHTML = document.getElementById("game-board");
+            gameBoardHTML.innerHTML = "";
+            for (let i = 0; i < MAX_ROW; i++) {
+                let row = [];
+                this.cells.push(row);
+                for (let j = 0; j < MAX_COLUMN; j++) {
+                    let cell = new Cell(i, j);
+                    row.push(cell);
+                    gameBoardHTML.innerHTML += cell.getCellHTML();
+                }
+            }
+        }
+
+        play(x, y) {
+            if (!this.isStop) {
+                let cell = this.cells[x][y];
+                if (cell.isEmpty()) {
+                    if (this.isNextX) {
+                        cell.setTick(TICK_X);
+                        this.check(x,y,TICK_X);
+                    } else {
+                        cell.setTick(TICK_O);
+                        this.check(TICK_O);
+                    }
+                    cell.update();
+
+                    this.isNextX = !this.isNextX;
+                } else {
+                    alert("This cell can not be overwritten");
+                }
+            }
+
+        }
+        check(symbol) {
+            for (let i = 0; i < MAX_ROW; i++) {
+                for (let j = 0; j < MAX_COLUMN; j++) {
+                    if (this.cells[i][j].tick === symbol) {
+                        let k = 1;
+                        let count = 1;
+                        while (this.cells[i][j + k].tick === symbol) {
+                            count++;
+                            k++;
+                        }
+                        this.isWin(count);
+                        k = 1;
+                        count = 1;
+                        while (this.cells[i + k][j].tick === symbol) {
+                            count++;
+                            k++;
+                        }
+                        this.isWin(count);
+                        k = 1;
+                        count = 1;
+                        while (this.cells[i-k][j - k].tick === symbol) {
+                            count++;
+                            k++;
+                        }
+                        this.isWin(count);
+                        k = 1;
+                        count = 1;
+                        while (this.cells[i + k][j + k].tick === symbol) {
+                            count++;
+                            k++;
+                        }
+                        this.isWin(count);
+                    }
+                }
+            }
+        }
+        isWin(max) {
+            if (max >= 5) {
+                this.isStop = true;
+                alert("Someone Win !!!")
+            }
+        }
+    }
+
+    let game = new Board();
+    game.printBoard();
+
+    function tick(x, y) {
+        game.play(x, y);
+    }
+
+</script>
+</body>
+</html>
