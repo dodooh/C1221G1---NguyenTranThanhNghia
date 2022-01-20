@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tom & Jerry</title>
+</head>
+<body>
+<script>
+    class Animal {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+        }
+
+        say() {
+            console.log("chua bik keu j nua");
+        }
+    }
+
+    class Rat extends Animal {
+        constructor(name, weight, speed, status) {
+            super(name, weight, speed);
+            this.status = status;
+        }
+
+        say(text) {
+            console.log(this.name + " keu: " + text);
+        }
+    }
+
+    class Cat extends Animal {
+        constructor(name, weight, speed) {
+            super(name, weight, speed);
+        }
+
+        say(text) {
+            console.log(this.name + " keu: " + text);
+        }
+
+        eat(mouse) {
+            if (mouse.status == "LIVE") {
+                mouse.status = "DIE";
+                mouse.say('Xu qua"');
+                this.say("qua' da~!!!");
+                this.weight += mouse.weight;
+            } else {
+                this.say("chuot chet ko them nka");
+            }
+        }
+
+        catch(mouse) {
+            if (this.speed > mouse.speed) {
+                this.say("Bat duoc roi nka");
+                this.eat(mouse);
+            } else {
+                this.say("Do anh bat dc em");
+            }
+        }
+    }
+
+    let jerry1 = new Rat("Jerry1", 2, 5, "LIVE");
+    let jerry2 = new Rat("Jerry2", 2, 8, "LIVE");
+    let jerry3 = new Rat("Jerry3", 2, 6, "LIVE");
+    let jerries = [jerry1, jerry2, jerry3];
+    let tom = new Cat("Tom", 6, 8);
+
+    for (let jerry of jerries) {
+        tom.catch(jerry);
+    }
+
+    console.log("tom sau khi bat chuot: " + tom.weight)
+</script>
+</body>
+</html>
