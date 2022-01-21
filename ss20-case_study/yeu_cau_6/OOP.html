@@ -3,8 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <title>OOP</title>
+    <style>
+        #winningTicket {
+            background-color: #FFB300;
+            text-align: center;
+        }
+
+        #custommerTickets {
+            background-color: #2196F3;
+            text-align: center;
+        }
+
+        sub {
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
+<h1>Xổ Số CodeGym! Chơi là <sub>0</sub>Trúng</h1>
+<div id="custommerTickets"></div>
+<div id="winningTicket" style="display: none"></div>
+<div id="thongBao"></div>
+<div>
+    <input type="button" onclick="buyTicket()" value="Mua Vé">
+    <input type="button" onclick="checkPrize()" value="Xem kết quả">
+</div>
+<script>
+    const NUMS_IN_TICKET = 6;
+    const MAX_TICKET_QUANTITY_ALLOWED = 4;
 
+    class Ticket {
+        constructor() {
+            this.nums = null;
+        }
+
+        askUserChoice() {
+            let userChoice;
+            do {
+                userChoice = parseInt(prompt(
+                    "Bạn có 2 lựa chọn:\n" +
+                    "1. Bạn muốn tự chọn số\n" +
+                    "2. Hệ thống tự random"));
+                if (userChoice === 1 || userChoice === 2) {
+                    break;
+                } else {
+                    alert("Nhập sai! Thử lại");
+                }
+            } while (true);
+            switch (userChoice) {
+                case 1:
+                    this.nums = this.generateCustomTicket();
+                    break;
+                case 2:
+                    this.nums = this.generateRandomTicket();
+                    break;
+                default:
+                    alert("fail");
+                    break;
+            }
+        }
+
+        generateRandomTicket() {
+            let tempArr = [];
+            for (let i = 0; i < NUMS_IN_TICKET; i++) {
+                let randomNumber = Math.floor(Math.random() * 100);
+                tempArr.push(randomNumber);
+            }
+            // console.log("random ticket " + tempArr);
+            return tempArr;
+        }
+
+        generateCustomTicket() {
+            let tempArr = [];
+            for (let i = 0; i < NUMS_IN_TICKET; i++) {
+                let customNumber;
+                do {
+                    customNumber = parseInt(prompt("Mời nhập số thứ " + (i + 1) + " [0 - 99]: "));
+                    if (customNumber >= 0 && customNumber < 100) {
+                        break;
+                    } else {
+                        alert("Nhập sai! Thử lại");
+                    }
+                } while (true);
+                tempArr.push(customNumber);
+            }
+            return tempArr;
+        }
+    }
+
+    class CodeGymLot {
+        constructor() {
+            this.winTicket = null;
+            this.custommerTickets = [];
+            this.custommerTicketsQuantity = 0;
+        }
+
+        generateWinningTicket() {
+            this.winTicket = new Ticket().generateRandomTicket();
+            // console.log(this.winTicket)
+            let winningTicketHTML = document.getElementById("winningTicket");
+            let hienThi = "";
+            hienThi += "<h4>Vé thắng</h4>";
+            hienThi += "<span>";
+            for (let num of this.winTicket) {
+                hienThi += "<input class='winTicket' size='7' type='text' disabled value='" + num + "'>";
+            }
+            hienThi += "</span><br>";
+            winningTicketHTML.style.display = "block";
+            winningTicketHTML.innerHTML = hienThi;
+        }
+
+        addTicket() {
+            if (this.custommerTicketsQuantity < MAX_TICKET_QUANTITY_ALLOWED) {
+                let newTicket = new Ticket();
+                newTicket.askUserChoice();
+                this.custommerTickets.push(newTicket);
+                this.custommerTicketsQuantity++;
+                this.show();
+            } else {
+                alert("Bạn không thể mua quá 4 vé!!");
+            }
+        }
+
+        show() {
+            let ticketsHTML = document.getElementById("custommerTickets");
+            let hienThi = "";
+            let dem = 0;
+            for (let ticket of this.custommerTickets) {
+                hienThi += "<h5>Vé " + ++dem + "</h5>";
+                hienThi += "<span>";
+                for (let num of ticket.nums) {
+                    hienThi += "<input class='userBuy' size='7' type='text' disabled value='" + num + "'>";
+                }
+                hienThi += "</span><br><br>";
+            }
+            ticketsHTML.innerHTML = hienThi;
+        }
+
+        /* Giải 1: 6 cặp số trùng => 10 Tỷ
+        *  Giải 2: 5 cặp số trùng => 5 Tỷ
+        *  Giải KK: 3 cặp số trùng => 1 Tỷ
+        * */
+        checkPrize() {
+            let total = 0;
+            // console.log(this.winTicket.nums)
+            let dem = 0;
+            for (let ticket of this.custommerTickets) {
+                alert("Kiểm tra vé thứ " + ++dem);
+                let count = 0;
+                for (let num of ticket.nums) {
+                    // console.log(num)
+                    if (this.winTicket.indexOf(num) !== -1) {
+                        count++;
+                    }
+                }
+                switch (count) {
+                    case 6:
+                        alert("Giải nhất trúng 10 Tỷ");
+                        total += 10;
+                        break;
+                    case 5:
+                        alert("Giải nhì trúng 5 Tỷ");
+                        total += 5;
+                        break;
+                    case 4:
+                    case 3:
+                        alert("Giải Khuyến Khích trúng 1 Tỷ");
+                        total += 1;
+                        break;
+                    default:
+                        alert("Chúc may mắn lần sau nha!!");
+                        break;
+                }
+            }
+            return total;
+        }
+
+    }
+
+    let test = new CodeGymLot();
+
+    function checkPrize() {
+        test.generateWinningTicket(); // Không biết trc kết quả
+        let money = test.checkPrize();
+        document.getElementById("thongBao").innerHTML = "<h3>Tổng số tiền thắng là: " + money + " Tỷ</h3>";
+    }
+
+    // test.generateWinningTicket(); // Soi kết quả
+    function buyTicket() {
+        test.addTicket();
+    }
+</script>
 </body>
 </html>

@@ -6,23 +6,35 @@
 </head>
 <body>
 <script>
+
+
+    // function missingValue(A, B) {
+    //     let result = [];
+    //     for (let i = 0; i < B.length; i++) {
+    //         let isDuplicate = true;
+    //         for (let j = 0; j < A.length; j++) {
+    //             if (B[i] == A[j]) {
+    //                 isDuplicate = false;
+    //                 break;
+    //             }
+    //         }
+    //         if (isDuplicate) {
+    //             result.push(B[i]);
+    //         }
+    //     }
+    //     return result;
+    // }
     let A = [7, 2, 5, 3, 5, 3];
-    let B = [7, 2, 5, 4, 6, 8, 9, 3, 5, 3];
+    let B = [7, 2, 5, 3, 5, 3, 4, 6, 8, 9];
 
     function missingValue(A, B) {
         let result = [];
-        for (let i = 0; i < B.length; i++) {
-            let isDuplicate = true;
-            for (let j = 0; j < B.length; j++) {
-                if (B[i] == A[j]) {
-                    isDuplicate = false;
-                    break;
-                }
-            }
-            if (isDuplicate) {
-                result.push(B[i]);
+        for (let j = 0; j < B.length; j++) {
+            if (A.indexOf(B[j]) === -1) { // có chứa B[j]
+                result.push(B[j]);
             }
         }
+
         return result;
     }
 
