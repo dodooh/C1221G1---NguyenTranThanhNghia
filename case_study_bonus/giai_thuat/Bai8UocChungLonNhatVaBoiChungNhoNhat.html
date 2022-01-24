@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UCLN & BCNN</title>
+</head>
+<body>
+<script>
+    function timUocChungLonNhat(numA, numB) {
+        while (numB !== 0) {
+            if (numA > numB) {
+                numA = numA - numB;
+            } else {
+                numB = numB - numA;
+            }
+        }
+        return numA;
+    }
+
+    function timBoiChungNhoNhat(numA, numB) {
+        return numA * numB / timUocChungLonNhat(numA, numB);
+    }
+
+    console.log("UCLN: " + timUocChungLonNhat(6, 8));
+    console.log("BCNN: " + timBoiChungNhoNhat(6, 8));
+</script>
+</body>
+</html>
