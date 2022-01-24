@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai12</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt("Nhập số dòng "))
+    let n = parseInt(prompt("Nhập số cột "))
+    //a.	Nhập ma trận a (m dòng, n cột) gồm các phần tử kiểu int
+    let arr = new Array(m);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = new Array(n);
+        for (let j = 0; j < arr[i].length; j++) {
+            arr[i][j] = parseInt(prompt("Nhập phần tử dòng " + i + " cột " + j));
+        }
+    }
+    console.log(arr)
+    // b.	Tính tích các số là bội số của 3 nằm trên dòng đầu tiên của ma trận a.
+    function tinhTichCacSoLaBoiCua3(arr) {
+        let result = 1;
+        for (let i = 0; i < arr[0].length; i++) {
+            result *= arr[0][i] % 3 == 0 ? arr[0][i] : 1;
+        }
+        return result;
+    }
+    console.log("Tích các số là bội của 3 nằm trên dòng đầu của mt a: " + tinhTichCacSoLaBoiCua3(arr));
+    // c.	Tạo ra mảng một chiều X[i] với X[i] là các giá trị lớn nhất trên dòng i của ma trận a
+    function findMaxInRow2DArray(arr) {
+        let X = [];
+        for (let i = 0; i < arr.length; i++) {
+            let max = arr[i][0];
+            for (let j = 1; j < arr[i].length; j++) {
+                max = arr[i][j] > max ? arr[i][j] : max;
+            }
+            X.push(max)
+        }
+        return X;
+    }
+    let X = findMaxInRow2DArray(arr)
+    console.log("Mảng X lưu các GTLN của dòng : " + X)
+    // d.	Xoá đi phần tử đầu tiên của mảng X[i], xuất lại mảng X[i].
+    X.shift();
+    console.log("Xoá đi phần tử đầu tiên của mảng X[i] : " + X)
+</script>
+
+</body>
+</html>

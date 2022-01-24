@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai11</title>
+</head>
+<body>
+<script>
+    // Bài 11:	Viết chương trình thực hiện các công việc như sau:
+    let a = [];
+    createArray();
+    console.log(a);
+    console.log("Tổng số dương lẻ mảng a: " + positiveOdd(a));
+    console.log("Tổng các số nguyên tố ở vị trí chắn: " + sumOfPrimesAtEvenPosition(a));
+    let k = parseInt(prompt("Nhập k để tìm: "));
+    console.log("Vị trí của k trong mảng: " + findK(a, k));
+    console.log("Sắp xếp mảng theo thứ tự tăng dần " + ascendingSort(a));
+    a = ascendingSort(a);
+    console.log("Thêm p vào mảng đã sắp xếp: " + insertElementToAscendingArray(a, 10));
+
+    // a.	Nhập một mảng a gồm n phần tử kiểu nguyên int
+    function createArray() {
+        let n = parseInt(prompt("Nhập vào số lượng phần tử mảng "));
+        for (let i = 0; i < n; i++) {
+            a[i] = parseInt(prompt("Nhập phần tử thứ " + i));
+        }
+    }
+
+    // b.	Tính tổng số dương lẻ mảng a
+    function positiveOdd(arr) {
+        let sum = 0;
+        for (const arrElement of arr) {
+            if (arrElement > 0 && arrElement % 2 !== 0) {
+                sum += arrElement;
+            }
+        }
+        return sum;
+    }
+
+    // c.	Tính tổng các số nguyên tố ở vị trí chắn.
+    function sumOfPrimesAtEvenPosition(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i += 2) {
+            if (arr[i] < 2) {
+                continue;
+            } else {
+                let flag = true;
+                for (let j = 2; j < Math.floor(Math.sqrt(arr[i])) + 1; j++) {
+                    if (arr[i] % j === 0) {
+                        flag = false;
+                        break;
+                    }
+                }
+                sum += flag ? arr[i] : 0;
+            }
+        }
+        return sum;
+    }
+
+    // d.	Nhập phần tử k, tìm xem k có xuất hiện trong mảng a không.
+    // Nếu có chỉ ra phần tử ở vị trí đầu tiên
+    function findK(arr, k) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === k) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // e.	Sắp sếp mảng a theo thứ tự tăng dần..
+    function ascendingSort(arr) {
+        let tempArr = [...arr];
+        for (let i = 0; i < tempArr.length - 1; i++) {
+            for (let j = tempArr.length - 1; j > i; j--) {
+                if (tempArr[i] > tempArr[j]) {
+                    let temp = tempArr[i];
+                    tempArr[i] = tempArr[j];
+                    tempArr[j] = temp;
+                }
+            }
+        }
+        return tempArr;
+    }
+
+    // f.	Chèn phần tử p vào mảng a sao cho mảng a vẫn đảm bảo tăng dần và xuất lại mảng a.
+    function insertElementToAscendingArray(arr, p) {
+        let newArr = [...arr];
+        let i;
+        for (i = newArr.length - 1; (i >= 0 && newArr[i] > p); i--) {
+            newArr[i + 1] = newArr[i];
+        }
+        newArr[i + 1] = p;
+        return newArr;
+    }
+</script>
+</body>
+</html>
