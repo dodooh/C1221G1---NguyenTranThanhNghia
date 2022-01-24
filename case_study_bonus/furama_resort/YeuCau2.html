@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Name</title>
+</head>
+<body>
+<script>
+    // let name = prompt("Nhập tên");
+    // let idNumber = prompt("Nhập số CMND");
+    // let dayOfBirth = parseInt(prompt("Nhập ngày sinh"));
+    // let monthOfBirth = parseInt(prompt("Nhập tháng sinh"));
+    // let yearOfBirth = parseInt(prompt("Nhập năm sinh"));
+    // let email = prompt("Nhập email");
+    // let addressCustomer = prompt("Nhập địa chỉ");
+    // let levelOfCustomer = prompt("Nhập loại khách hàng  (Diamond, Platinum, Gold, Silver, Member)");
+    // let discount = parseFloat(prompt("Nhập % khuyến mãi "));
+    // let numberOfPeople = parseInt(prompt("Nhập số người đi cùng"));
+    // let rentDays = parseInt(prompt("Nhập số ngày muốn thuê"));
+    // let service = prompt("Nhập loại dịch vụ (Villa, House, Room)");
+    // let typeOfRoom = prompt("Nhập loại phòng thuê (Vip, Business,  Normal)");
+    let name = "Nguyễn Văn A";
+    let idNumber = "0012541514";
+    let dayOfBirth = 29;
+    let monthOfBirth = 3;
+    let yearOfBirth = 1991;
+    let email = "nguyenVanA@gmail.com";
+    let addressCustomer = "Đà Nẵng";
+    let levelOfCustomer = "Diamond";
+    let discount = 20;
+    let numberOfPeople = 4;
+    let rentDays = 9;
+    let service = "Villa";
+    let typeOfRoom = "Business";
+    // Hiển thị toàn bộ thông tin của Customer.
+    console.log("Tên: " + name);
+    console.log("CMND : " + idNumber);
+    console.log("DOB: " + dayOfBirth + "/" + monthOfBirth + "/" + yearOfBirth);
+    console.log("Email: " + email);
+    console.log("Địa chỉ: " + addressCustomer);
+    console.log("Loại Khách Hàng: " + levelOfCustomer);
+    console.log("Khuyến mãi: " + discount + "%");
+    console.log("Số người đi cùng: " + numberOfPeople);
+    console.log("Số ngày muốn thuê: " + rentDays);
+    console.log("Loại dịch vụ: " + service);
+    console.log("Loại phòng thuê: " + typeOfRoom);
+    // Tính tuổi
+    let currentYear = new Date().getFullYear();
+    let birthday = new Date(yearOfBirth, monthOfBirth - 1, dayOfBirth).getFullYear();
+    let ageCustomer = currentYear - birthday;
+    //
+    let totalDiscount = 0;
+    //  Villa chương trình sẽ thực hiện gán giá loại dịch vụ là 500 tương tự house 300 và room 100
+    let serviceFee = service === "Villa" ? 500 : service === "House" ? 300 : 100;
+    // ( Số tiền phải trả  = giá loại dịch vụ X số ngày X ( 1 – giảm giá/100 )
+    let total = serviceFee * rentDays * (1 - discount / 100);
+    // Mức giá theo địa chỉ:
+    if (addressCustomer === "Đà Nẵng") {
+        totalDiscount += 20;
+        if (ageCustomer > 30) {
+            totalDiscount += 2;
+        } else if (ageCustomer > 20) {
+            totalDiscount += 1;
+        }
+    } else if (addressCustomer === "Huế ") {
+        totalDiscount += 10;
+    } else if (addressCustomer === "Quảng Nam") {
+        totalDiscount += 5;
+    }
+    // Mức giá theo thời gian lưu trú:
+    if (rentDays > 7) {
+        totalDiscount += 30;
+    } else if (rentDays >= 5) {
+        totalDiscount += 20;
+    } else if (rentDays >= 2) {
+        totalDiscount += 10;
+    }
+    // Mức giá theo loại Customer:
+    switch (levelOfCustomer) {
+        case "Diamond":
+            totalDiscount += 15;
+            break;
+        case "Platium":
+            totalDiscount += 10;
+            break;
+        case "Gold":
+            totalDiscount += 5;
+            break;
+        case "Silver":
+            totalDiscount += 2;
+            break;
+        default:
+            totalDiscount += 0;
+    }
+    // Mức giá dựa vào tuổi và địa chỉ:
+    console.log("Được giảm:  $" + totalDiscount);
+    console.log("Số tiền phải trả là:  $" + (total - totalDiscount));
+
+
+</script>
+</body>
+</html>

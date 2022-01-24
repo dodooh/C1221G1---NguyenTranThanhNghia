@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu Cau 4 Task 1</title>
+</head>
+<body>
+<script>
+    let arrNameCustomers = [];
+
+    function addNewCustomers() {
+        let numCustomers = parseInt(prompt("Nhập vào số lượng customer: "));
+        for (let i = 0; i < numCustomers; i++) {
+            let nameCustomer = prompt("Nhập tên khách hàng thứ " + (i + 1));
+            arrNameCustomers.push(nameCustomer)
+        }
+    }
+    addNewCustomers()
+    arrNameCustomers.forEach(name => document.write(name + "<br>"))
+    document.write("Sắp xếp theo alphabet<br>")
+    arrNameCustomers.sort().forEach(name => document.write(name + "<br>"))
+</script>
+</body>
+</html>

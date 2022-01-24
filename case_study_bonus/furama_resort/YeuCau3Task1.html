@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu Cau 3</title>
+</head>
+<body>
+<script>
+    // Task 1: Chuẩn hóa dữ liệu vào
+    let idNumber;
+    do {
+        idNumber = prompt("Nhập số CMND");
+        if (idNumber.length !== 9) {
+            alert("Vui lòng nhập đủ 9 số. Nhập lại");
+        } else if (isNaN(idNumber) || parseInt(idNumber) < 0) {
+            alert("Vui lòng chỉ nhập kí tự số. Nhập lại");
+        } else {
+            break;
+        }
+    } while (true);
+    let dayOfBirth;
+    do {
+        dayOfBirth = prompt("Nhập ngày tháng năm sinh: (DD/MM/YYYY)");
+        let dd = dayOfBirth[0] + dayOfBirth[1];
+        let mm = dayOfBirth[3] + dayOfBirth[4];
+        let yyyy = dayOfBirth[6] + dayOfBirth[7] + dayOfBirth[8] + dayOfBirth[9];
+        if (dayOfBirth[2] !== '/' || dayOfBirth[5] !== '/') {
+            alert("Định dạng '/' sai. Nhập lại");
+        } else if (isNaN(dd) || isNaN(mm) || isNaN(yyyy)) {
+            alert("Định dạng ngày tháng năm sai. Nhập lại");
+        } else if (parseInt(dd) > 31 || parseInt(dd) < 1) {
+            alert("Ngày nhập không hợp lệ.");
+        } else if (parseInt(mm) > 12 || parseInt(mm) < 1) {
+            alert("Tháng nhập không hợp lệ.");
+        } else if (parseInt(yyyy) > 2022 || parseInt(yyyy) < 1900) {
+            alert("Năm nhập không hợp lệ.");
+        } else {
+            break;
+        }
+    } while (true);
+    let email;
+    do {
+        email = prompt("Nhập email");
+        if (email.indexOf('@') < 3
+            || email.indexOf('.') < 6
+            || email.indexOf('@') > email.indexOf('.')
+            || email.indexOf('.') - email.indexOf('@') < 3
+            || email.split('@').length > 2
+            || email.split('.').length > 2) {
+            alert("Định dạng email không hợp lệ. Nhập lại");
+        } else {
+            break;
+        }
+    } while (true);
+    let address = prompt("Nhập địa chỉ");
+    let levelOfCustomer = prompt("Nhập loại khách hàng  (Diamond, Platinum, Gold, Silver, Member)");
+    let discount;
+    do {
+        discount = parseFloat(prompt("Nhập % khuyến mãi "));
+        if (isNaN(discount) || discount <= 0) {
+            alert("Không hợp lệ. Thử lại");
+        } else {
+            break;
+        }
+    } while (true);
+    let numberOfPeople;
+    do {
+        numberOfPeople = parseInt(prompt("Nhập số người đi cùng"));
+        if (isNaN(numberOfPeople) || numberOfPeople <= 0) {
+            alert("Không hợp lệ. Thử lại");
+        } else {
+            break;
+        }
+    } while (true);
+    let rentDays = parseInt(prompt("Nhập số ngày muốn thuê"));
+    do {
+        rentDays = parseInt(prompt("Nhập số ngày muốn thuê"));
+        if (isNaN(rentDays) || rentDays <= 0) {
+            alert("Không hợp lệ. Thử lại");
+        } else {
+            break;
+        }
+    } while (true);
+
+    console.log("CMND : " + idNumber);
+    console.log("DOB: " + dayOfBirth);
+    console.log("Email: " + email);
+    console.log("Khuyến mãi: " + discount + "%");
+    console.log("Số người đi cùng: " + numberOfPeople);
+    console.log("Số ngày muốn thuê: " + rentDays);
+</script>
+</body>
+</html>

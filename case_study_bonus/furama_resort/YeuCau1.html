@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Name</title>
+</head>
+<body>
+<script>
+    let name = prompt("Nhập tên");
+    let idNumber = prompt("Nhập số CMND");
+    let dayOfBirth = parseInt(prompt("Nhập ngày sinh"));
+    let monthOfBirth = parseInt(prompt("Nhập tháng sinh"));
+    let yearOfBirth = parseInt(prompt("Nhập năm sinh"));
+    let email = prompt("Nhập email");
+    let address = prompt("Nhập địa chỉ");
+    let levelOfCustomer = prompt("Nhập loại khách hàng  (Diamond, Platinum, Gold, Silver, Member)");
+    let discount = parseFloat(prompt("Nhập % khuyến mãi "));
+    let numberOfPeople = parseInt(prompt("Nhập số người đi cùng"));
+    let rentDays = parseInt(prompt("Nhập số ngày muốn thuê"));
+    let service = prompt("Nhập loại dịch vụ (Villa, House, Room)");
+    let typeOfRoom = prompt("Nhập loại phòng thuê (Vip, Business,  Normal)");
+
+    console.log("Tên: " + name);
+    console.log("CMND : " + idNumber);
+    console.log("DOB: " + dayOfBirth + "/" + monthOfBirth + "/" + yearOfBirth);
+    console.log("Email: " + email);
+    console.log("Địa chỉ: " + address);
+    console.log("Loại Khách Hàng: " + levelOfCustomer);
+    console.log("Khuyến mãi: " + discount + "%");
+    console.log("Số người đi cùng: " + numberOfPeople);
+    console.log("Số ngày muốn thuê: " + rentDays);
+    console.log("Loại dịch vụ: " + service);
+    console.log("Loại phòng thuê: " + typeOfRoom);
+    let serviceFee = service === "Villa" ? 500 : service === "House" ? 300 : 100;
+    let total = serviceFee * rentDays * (1 - discount / 100);
+    console.log("Số tiền phải trả là:  " + total);
+</script>
+</body>
+</html>

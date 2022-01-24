@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu Cau 4 Task 2</title>
+</head>
+<body>
+<script>
+    let arrNameCustomers = [
+        "Trần Thanh V", "Lê Thanh T", "Lê Đức D",
+        "Trần Hữu N", "Nguyên Trần T", "Phan A",
+        "Phan Lê D", "Phan Lê H", "Trương Thái B", "Hà Thị H"];
+
+    do {
+        let hienThi = "Nhập vào chỉ số muốn xóa\n";
+        for (let i = 0; i < arrNameCustomers.length; i++) {
+            hienThi += i + ". " + arrNameCustomers[i] + "\n";
+        }
+        hienThi += arrNameCustomers.length + " Thoát";
+        let userChoice = parseInt(prompt(hienThi));
+        if (userChoice === arrNameCustomers.length) {
+            console.log(arrNameCustomers);
+            break;
+        } else {
+            arrNameCustomers.splice(userChoice,1);
+            console.log(arrNameCustomers);
+        }
+    } while (true);
+</script>
+</body>
+</html>

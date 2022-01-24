@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu Cau 3</title>
+</head>
+<body>
+<script>
+    let name = prompt("Nhập tên");
+    // Task 2 Định dạng tên
+    name =name.trim().toLowerCase();
+    let tempName = "";
+    // Bỏ khoảng cách thừa ở giữa
+    for (let i = 0; i < name.length; i++) {
+        if (name[i] === " " && name[i + 1] === " ") {
+            continue;
+        } else{
+            tempName += name[i];
+        }
+    }
+    name = tempName;
+    // In hoa chữ đầu mỗi từ
+    tempName = name[0].toUpperCase();
+    for (let i = 1; i < name.length; i++) {
+        if (name[i - 1] === " ") {
+            tempName += name[i].toUpperCase();
+        } else{
+            tempName += name[i];
+        }
+    }
+    name = tempName;
+    // Task 1: Chuẩn hóa dữ liệu vào
+
+    console.log("Tên: " + name);
+</script>
+</body>
+</html>
