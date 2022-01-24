@@ -6,11 +6,13 @@
 </head>
 <body>
 <script>
+    // Bài 9: Nhập vào một chuỗi ký tự  thực hiện công việc sau:
     let s = "Ngay Nay thAng NaM sAuz.";
     console.log("To Reverse: " + reverseString(s))
     console.log("To Uppercase: " + upperString(s))
     console.log("To Lowercase: " + lowerString(s))
     console.log("To Inverse: " + inverseString(s))
+    // a.	In ra chuỗi đảo ngược của chuỗi đã cho
     function reverseString(s) {
         let result = "";
         for (let i = s.length - 1; i >= 0; i--) {
@@ -18,7 +20,7 @@
         }
         return result;
     }
-
+    // b.	Đổi chuổi đã cho sang chữ hoa
     function upperString(s) {
         let result = "";
         for (let i = 0; i < s.length; i++) {
@@ -31,7 +33,7 @@
         return result
         // return s.toUpperCase();
     }
-
+    // c.	Đổi chuỗi đã cho sang chữ thường
     function lowerString(s) {
         let result = "";
         for (let i = 0; i < s.length; i++) {
@@ -44,7 +46,8 @@
         return result
         // return result.toLowerCase();
     }
-
+    // d.	Đổi chuỗi đã cho sang vừa chữ hoa vừa chữ thường
+    // (các ký tự chữ hoa thì thành chữ thường và ngược lại)
     function inverseString(s) {
         let result = "";
         for (const sElement of s) {
