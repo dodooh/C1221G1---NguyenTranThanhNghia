@@ -8,15 +8,6 @@
 <script>
     // Bài 11:	Viết chương trình thực hiện các công việc như sau:
     let a = [];
-    createArray();
-    console.log(a);
-    console.log("Tổng số dương lẻ mảng a: " + positiveOdd(a));
-    console.log("Tổng các số nguyên tố ở vị trí chắn: " + sumOfPrimesAtEvenPosition(a));
-    let k = parseInt(prompt("Nhập k để tìm: "));
-    console.log("Vị trí của k trong mảng: " + findK(a, k));
-    console.log("Sắp xếp mảng theo thứ tự tăng dần " + ascendingSort(a));
-    a = ascendingSort(a);
-    console.log("Thêm p vào mảng đã sắp xếp: " + insertElementToAscendingArray(a, 10));
 
     // a.	Nhập một mảng a gồm n phần tử kiểu nguyên int
     function createArray() {
@@ -25,7 +16,8 @@
             a[i] = parseInt(prompt("Nhập phần tử thứ " + i));
         }
     }
-
+    createArray();
+    console.log(a);
     // b.	Tính tổng số dương lẻ mảng a
     function positiveOdd(arr) {
         let sum = 0;
@@ -36,6 +28,7 @@
         }
         return sum;
     }
+    console.log("Tổng số dương lẻ mảng a: " + positiveOdd(a));
 
     // c.	Tính tổng các số nguyên tố ở vị trí chắn.
     function sumOfPrimesAtEvenPosition(arr) {
@@ -56,6 +49,8 @@
         }
         return sum;
     }
+    console.log("Tổng các số nguyên tố ở vị trí chắn: " + sumOfPrimesAtEvenPosition(a));
+
 
     // d.	Nhập phần tử k, tìm xem k có xuất hiện trong mảng a không.
     // Nếu có chỉ ra phần tử ở vị trí đầu tiên
@@ -67,7 +62,8 @@
         }
         return -1;
     }
-
+    let k = parseInt(prompt("Nhập k để tìm: "));
+    console.log("Vị trí của k trong mảng: " + findK(a, k));
     // e.	Sắp sếp mảng a theo thứ tự tăng dần..
     function ascendingSort(arr) {
         let tempArr = [...arr];
@@ -82,6 +78,7 @@
         }
         return tempArr;
     }
+    console.log("Sắp xếp mảng theo thứ tự tăng dần " + ascendingSort(a));
 
     // f.	Chèn phần tử p vào mảng a sao cho mảng a vẫn đảm bảo tăng dần và xuất lại mảng a.
     function insertElementToAscendingArray(arr, p) {
@@ -93,6 +90,8 @@
         newArr[i + 1] = p;
         return newArr;
     }
+    a = ascendingSort(a);
+    console.log("Thêm p vào mảng đã sắp xếp: " + insertElementToAscendingArray(a, 10));
 </script>
 </body>
 </html>

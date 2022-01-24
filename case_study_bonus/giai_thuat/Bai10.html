@@ -8,19 +8,20 @@
 <script>
     // BÀI 10:	Nhập một chuổi ký tự tuỳ ý, sau đó thực hiện công việc sau:
     let s = "Xin Chao Day La La La La Viet Nam Xin Chao";
-    println(s);
-    console.log(countWords(s));
-    frequency(s);
     // a. In mỗi từ trên mỗi dòng
     function println(s) {
         let arr = s.split(" ");
         arr.forEach(word => console.log(word));
     }
+    println(s);
+
     // b. Đếm số từ có trong chuổi đã cho.
     function countWords(s) {
         let arr = s.split(" ");
         return arr.length;
     }
+    console.log(countWords(s));
+
     // c. Đưa ra bảng tần số xuất hiện của các từ.
     function frequency(s) {
         let wordArray = [];
@@ -38,6 +39,8 @@
             console.log("Từ " + wordArray[i] + " xuất hiện " + frequencyArray[i] + " lần");
         }
     }
+    frequency(s);
+
 </script>
 </body>
 </html>
