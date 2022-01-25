@@ -3,81 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <title>A Web Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: "Comic Sans MS", sans-serif;
+        }
 
+        #header {
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: start;
+
+            border-bottom: 4px solid black;
+        }
+
+        #title {
+            margin: 0 auto;
+        }
+
+        #main {
+            width: 450px;
+            height: 1000px;
+            border-right: 4px solid black;
+        }
+        #container {
+            padding: 60px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        select {
+            font-size: 24px;
+            font-weight: bold;
+            border: 4px solid black;
+            border-radius: 5px;
+
+        }
+    </style>
 </head>
 <body>
-<div id="title"><h1>Hệ thống quản lý bài tập Casestudy module 1</h1></div>
-<div>
-    <div class="dropdown">
-        <button onclick="myFunction('myDropdown1')" class="dropbtn">Yêu cầu 1</button>
-        <div id="myDropdown1" class="dropdown-content">
-            <a href="../yeu_cau_1/Bai1.html">Bài 1</a>
-            <a href="../yeu_cau_1/Bai2.html">Bài 2</a>
-            <a href="../yeu_cau_1/Bai3.html">Bài 3</a>
-            <a href="../yeu_cau_1/Bai4.html">Bài 4</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button onclick="myFunction('myDropdown2')" class="dropbtn">Yêu cầu 2</button>
-        <div id="myDropdown2" class="dropdown-content">
-            <a href="../yeu_cau_2/Bai1.html">Bài 1</a>
-            <a href="../yeu_cau_2/Bai2.html">Bài 2</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button onclick="myFunction('myDropdown3')" class="dropbtn">Yêu cầu 3</button>
-        <div id="myDropdown3" class="dropdown-content">
-            <a href="../yeu_cau_3/Bai1.html">Bài 1</a>
-            <a href="../yeu_cau_3/Bai2.html">Bài 2</a>
-            <a href="../yeu_cau_3/Bai3.html">Bài 3</a>
-            <a href="../yeu_cau_3/Bai4.html">Bài 4</a>
-            <a href="../yeu_cau_3/Bai5.html">Bài 5</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button onclick="myFunction('myDropdown4')" class="dropbtn">Yêu cầu 4</button>
-        <div id="myDropdown4" class="dropdown-content">
-            <a href="../yeu_cau_4/Bai1.html">Bài 1</a>
-            <a href="../yeu_cau_4/Bai2.html">Bài 2</a>
-            <a href="../yeu_cau_4/Bai3.html">Bài 3</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button onclick="myFunction('myDropdown5')" class="dropbtn">Yêu cầu 5</button>
-        <div id="myDropdown5" class="dropdown-content">
-            <a href="../yeu_cau_5/Bai1.html">Bài 1</a>
-            <a href="../yeu_cau_5/Bai2.html">Bài 2</a>
-            <a href="../yeu_cau_5/Bai3.html">Bài 3</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button onclick="myFunction('myDropdown6')" class="dropbtn">Yêu cầu 6</button>
-        <div id="myDropdown6" class="dropdown-content">
-            <a href="../yeu_cau_6/OOP.html">OOP</a>
-        </div>
+<div id="header">
+    <img width="60"
+         src="data:image/png;base64,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"
+         alt="">
+    <div id="title"><h1>Hệ thống quản lý bài tập CaseStudy Module 1</h1></div>
+</div>
+
+<div id="main">
+    <div id="container">
+        <select name="baitap" id="yeuCau1">
+            <option value="">Bài tập 1</option>
+        </select>
+        <select name="baitap" id="yeuCau2">
+            <option value="">Bài tập 2</option>
+        </select>
+        <select name="baitap" id="yeuCau3">
+            <option value="">Bài tập 3</option>
+        </select>
+        <select name="baitap" id="yeuCau4">
+            <option value="">Bài tập 4</option>
+        </select>
+        <select name="baitap" id="yeuCau5">
+            <option value="">Bài tập 5</option>
+        </select>
+        <select name="baitap" id="yeuCau6">
+            <option value="">Bài tập 6</option>
+        </select>
     </div>
 </div>
-<script>
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-    function myFunction(elementId) {
-        document.getElementById(elementId).classList.toggle("show");
-    }
 
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-            let dropdowns = document.getElementsByClassName("dropdown-content");
-            let i;
-            for (i = 0; i < dropdowns.length; i++) {
-                let openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
 </body>
 </html>
