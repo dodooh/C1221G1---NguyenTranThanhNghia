@@ -37,6 +37,9 @@
                     case 2:
                         editCustomer();
                         break;
+                    case 3:
+                        deleteCustomer();
+                        break;
                     default:
                         alert("Nhập sai. Thử lại");
                         break;
@@ -74,7 +77,7 @@
         }
         hienThi += "[" + arrListCustomers.length + "]. Back";
         let userChoice = parseInt(prompt(hienThi));
-        if (userChoice > 0 && userChoice < arrListCustomers.length) {
+        if (userChoice >= 0 && userChoice < arrListCustomers.length) {
             displayInfomationCustomer(userChoice);
         }
     }
@@ -122,7 +125,7 @@
         hienThi += "[10]. Loại phòng thuê: " + arrListCustomers[index][10] + "\n";
         hienThi += "[11]. Thoát";
         let userChoice = parseInt(prompt(hienThi));
-        if (userChoice > 0 && userChoice < 11) {
+        if (userChoice >= 0 && userChoice < 11) {
             let userEdit = prompt("Nhập thông tin muốn sửa: ");
             editDetailInformationCustomer(index, userChoice, userEdit);
         }
@@ -131,7 +134,24 @@
     function editDetailInformationCustomer(user, info, userEdit) {
         arrListCustomers[user][info] = userEdit;
         displayInfomationCustomer(user);
+    }
 
+    function deleteCustomer() {
+        let hienThi = "Choose Customer to Delete: \n";
+        for (let i = 0; i < arrListCustomers.length; i++) {
+            hienThi += "[" + i + "]. " + arrListCustomers[i][0] + ". " + arrListCustomers[i][1] + "\n";
+        }
+        hienThi += "[" + arrListCustomers.length + "]. Back";
+        let userChoice = parseInt(prompt(hienThi));
+        if (userChoice >= 0 && userChoice < arrListCustomers.length) {
+            confirmDeleteCustomer(userChoice);
+        }
+    }
+
+    function confirmDeleteCustomer(index) {
+        if (parseInt(prompt("1. YES\n2. NO ")) === 1) {
+            arrListCustomers.splice(index, 1);
+        }
     }
 
     displayMainMenu();
