@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau4</title>
+</head>
+<body>
+<script>
+    class TaiKhoanNganHang {
+        constructor(maTaiKhoan, tenChuTaiKhoan, tenNganHang, tongTien) {
+            this.maTaiKhoan = maTaiKhoan;
+            this.tenChuTaiKhoan = tenChuTaiKhoan;
+            this.tenNganHang = tenNganHang;
+            this.tongTien = tongTien;
+        }
+
+        getMaTaiKhoan() {
+            return this.maTaiKhoan;
+        }
+
+        setMaTaiKhoan(maTaiKhoan) {
+            this.maTaiKhoan = maTaiKhoan;
+        }
+
+        getTenChuTaiKhoan() {
+            return this.tenChuTaiKhoan;
+        }
+
+        setTenChuTaiKhoan(tenChuTaiKhoan) {
+            this.tenChuTaiKhoan = tenChuTaiKhoan;
+        }
+
+        getTenNganHang() {
+            return this.tenNganHang;
+        }
+
+        setTenNganHang(tenNganHang) {
+            this.tenNganHang = tenNganHang;
+        }
+
+        getTongTien() {
+            return this.tongTien;
+        }
+
+        setTongTien(tongTien) {
+            this.tongTien = tongTien;
+        }
+
+        toString() {
+            return "Ma tai khoan: " + this.getMaTaiKhoan()
+                + "\nTen chu tai khoan: " + this.getTenChuTaiKhoan()
+                + "\nTen ngan hang: " + this.getTenNganHang()
+                + "\nTong tien trong tai khoan: " + this.getTongTien();
+        }
+    }
+
+    let danhSach = [];
+
+    function addNewAccount() {
+        let idNumber;
+        do {
+            idNumber = parseInt(prompt("Nhap ma tai khoan"));
+            if (/^\d{5}$/.test(idNumber)) {
+                break;
+            } else {
+                alert("Nhap sai. Nhap lai");
+            }
+        } while (true);
+        let accountName = prompt("Nhap ten tai khoan");
+        let bankName = prompt("nhap ten ngan hang");
+        let amount = parseInt(prompt("Nhap so tien trong tai khoan"));
+        let tempAccount = new TaiKhoanNganHang(idNumber, accountName, bankName, amount);
+        danhSach.push(tempAccount);
+    }
+
+    function displayDanhSach() {
+        for (const account of danhSach) {
+            alert(account.toString());
+        }
+    }
+
+    addNewAccount();
+    displayDanhSach();
+</script>
+</body>
+</html>
