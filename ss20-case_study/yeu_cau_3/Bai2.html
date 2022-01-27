@@ -30,7 +30,7 @@
     function missingValue(A, B) {
         let result = [];
         for (let j = 0; j < B.length; j++) {
-            if (A.indexOf(B[j]) === -1) { // có chứa B[j]
+            if (A.indexOf(B[j]) === -1 && result.indexOf(B[j]) === -1) { // có chứa B[j]
                 result.push(B[j]);
             }
         }

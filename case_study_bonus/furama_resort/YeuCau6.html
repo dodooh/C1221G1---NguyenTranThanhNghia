@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu Cau 6 Task 1</title>
+</head>
+<body>
+<script>
+    const menu = ['Add New Customer', 'Display Information Customer',
+        'Edit Information Customer', 'Delete Customer', 'Exit'];
+
+
+    class Customer {
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getAge() {
+            return this.age;
+        }
+
+        setAge(age) {
+            this.age = age;
+        }
+
+        getDOB() {
+            return this.dOB;
+        }
+
+        setDOB(dOB) {
+            this.dOB = dOB;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        setEmail(email) {
+            this.email = email;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        setAddress(address) {
+            this.address = address;
+        }
+
+        getLevel() {
+            return this.level;
+        }
+
+        setLevel(level) {
+            this.level = level;
+        }
+
+        getDiscount() {
+            return this.discount;
+        }
+
+        setDiscount(discount) {
+            this.discount = discount;
+        }
+
+        getNumberOfPeople() {
+            return this.numberOfPeople;
+        }
+
+        setNumberOfPeople(numberOfPeople) {
+            this.numberOfPeople = numberOfPeople;
+        }
+
+        getRentDays() {
+            return this.rentDays;
+        }
+
+        setRentDays(rentDays) {
+            this.rentDays = rentDays;
+        }
+
+        getService() {
+            return this.service;
+        }
+
+        setService(service) {
+            this.service = service;
+        }
+
+        getTypeOfRoom() {
+            return this.typeOfRoom;
+        }
+
+        setTypeOfRoom(typeOfRoom) {
+            this.typeOfRoom = typeOfRoom;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        constructor(name, id, dOB, email, address, level, discount, numberOfPeople, rentDays, service, typeOfRoom) {
+            this.name = name;
+            this.id = id;
+            this.dOB = dOB;
+            this.email = email;
+            this.address = address;
+            this.level = level;
+            this.discount = discount;
+            this.numberOfPeople = numberOfPeople;
+            this.rentDays = rentDays;
+            this.service = service;
+            this.typeOfRoom = typeOfRoom;
+        }
+
+        calculateRoomFee() {
+            let serviceFee = this.service === "Villa" ? 500 : this.service === "House" ? 300 : 100;
+            let total = serviceFee * this.rentDays * (1 - this.discount / 100);
+            alert("Tổng số tiền phải trả: " + total);
+        }
+    }
+
+    function addNewCustomer() {
+        let nameCustomer = prompt("Nhập tên");
+        let idCustomer = prompt("Nhập số CMND");
+        let dayOfBirth;
+        do {
+            const regex = /(0[1-9]|[12]\d|3[01])\/(0\d|1[0-2])\/(19|20)\d{2}$/;
+            dayOfBirth = prompt("Nhập ngày sinh");
+            if (regex.test(dayOfBirth)) {
+                break;
+            } else {
+                alert("Không hợp lệ nhập lại");
+            }
+        } while (true);
+        let emailCustomer;
+        do {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            emailCustomer = prompt("Nhập email");
+            if (regex.test(emailCustomer)) {
+                break;
+            } else {
+                alert("Không hợp lệ nhập lại");
+            }
+        } while (true);
+        let addressCustomer = prompt("Nhập địa chỉ");
+        let levelOfCustomer = prompt("Nhập loại khách hàng  (Diamond, Platinum, Gold, Silver, Member)");
+        let discount = parseFloat(prompt("Nhập % khuyến mãi "));
+        let numberOfPeople = parseInt(prompt("Nhập số người đi cùng"));
+        let rentDays = parseInt(prompt("Nhập số ngày muốn thuê"));
+        let service = prompt("Nhập loại dịch vụ (Villa, House, Room)");
+        let typeOfRoom = prompt("Nhập loại phòng thuê (Vip, Business,  Normal)");
+        let customer = new Customer(
+            nameCustomer, idCustomer,
+            emailCustomer, addressCustomer, levelOfCustomer,
+            discount, numberOfPeople, rentDays,
+            service, typeOfRoom);
+        listCustomers.push(customer);
+    }
+
+    function displayMainMenu() {
+        do {
+            let hienThi = "Choose Function: \n";
+            for (let i = 0; i < menu.length; i++) {
+                hienThi += "[" + i + "]. " + menu[i] + "\n";
+            }
+            let userChoice = parseInt(prompt(hienThi));
+            if (userChoice === menu.length - 1) {
+                break;
+            } else {
+                switch (userChoice) {
+                    case 0:
+                        addNewCustomer();
+                        break;
+                    case 1:
+                        displayCustomers();
+                        break;
+                    case 2:
+                        displayTotalPay();
+                        break;
+                    case 3:
+                        editCustomer();
+                        break;
+                    case 4:
+                        deleteCustomer();
+                        break;
+                    default:
+                        alert("Nhập sai. Thử lại");
+                        break;
+                }
+            }
+        } while (true);
+    }
+
+
+    function displayCustomers() {
+        let hienThi = "Choose Customer: \n";
+        for (let i = 0; i < listCustomers.length; i++) {
+            hienThi += "[" + i + "]. " + listCustomers[i].getName() + ". " + listCustomers[i].getId() + "\n";
+        }
+        hienThi += "[" + listCustomers.length + "]. Back";
+        let userChoice = parseInt(prompt(hienThi));
+        if (userChoice >= 0 && userChoice < listCustomers.length) {
+            displayInformationCustomer(userChoice);
+        }
+    }
+
+    function displayInformationCustomer(index) {
+        let hienThi = "Information: \n";
+        hienThi += "[0]. Tên: " + listCustomers[index].getName() + "\n";
+        hienThi += "[1]. CMND : " + listCustomers[index].getId() + "\n";
+        hienThi += "[2]. DOB: " + listCustomers[index].getDOB() + "\n";
+        hienThi += "[3]. Email: " + listCustomers[index].getEmail() + "\n";
+        hienThi += "[4]. Địa chỉ: " + listCustomers[index].getAddress() + "\n";
+        hienThi += "[5]. Loại Khách Hàng: " + listCustomers[index].getLevel() + "\n";
+        hienThi += "[6]. Khuyến mãi: " + listCustomers[index].getDiscount() + "%" + "\n";
+        hienThi += "[7]. Số người đi cùng: " + listCustomers[index].getNumberOfPeople() + "\n";
+        hienThi += "[8]. Số ngày muốn thuê: " + listCustomers[index].getRentDays() + "\n";
+        hienThi += "[9]. Loại dịch vụ: " + listCustomers[index].getService() + "\n";
+        hienThi += "[10]. Loại phòng thuê: " + listCustomers[index].getTypeOfRoom() + "\n";
+        hienThi += "[11]. Thoát";
+        alert(hienThi);
+    }
+
+    function editCustomer() {
+        let hienThi = "Choose Customer to Edit: \n";
+        for (let i = 0; i < listCustomers.length; i++) {
+            hienThi += "[" + i + "]. " + listCustomers[i][0] + ". " + listCustomers[i][1] + "\n";
+        }
+        hienThi += "[" + listCustomers.length + "]. Back";
+        let userChoice = parseInt(prompt(hienThi));
+        if (userChoice >= 0 && userChoice < listCustomers.length) {
+            editInformationCustomer(userChoice);
+        }
+    }
+
+    function editInformationCustomer(index) {
+        let hienThi = "Choose Information to Edit: \n";
+        hienThi += "[0]. Tên: " + listCustomers[index][0] + "\n";
+        hienThi += "[1]. CMND : " + listCustomers[index][1] + "\n";
+        hienThi += "[2]. DOB: " + listCustomers[index][2] + "\n";
+        hienThi += "[3]. Email: " + listCustomers[index][3] + "\n";
+        hienThi += "[4]. Địa chỉ: " + listCustomers[index][4] + "\n";
+        hienThi += "[5]. Loại Khách Hàng: " + listCustomers[index][5] + "\n";
+        hienThi += "[6]. Khuyến mãi: " + listCustomers[index][6] + "%" + "\n";
+        hienThi += "[7]. Số người đi cùng: " + listCustomers[index][7] + "\n";
+        hienThi += "[8]. Số ngày muốn thuê: " + listCustomers[index][8] + "\n";
+        hienThi += "[9]. Loại dịch vụ: " + listCustomers[index][9] + "\n";
+        hienThi += "[10]. Loại phòng thuê: " + listCustomers[index][10] + "\n";
+        hienThi += "[11]. Thoát";
+        let userChoice = parseInt(prompt(hienThi));
+        if (userChoice >= 0 && userChoice < 11) {
+            let userEdit = prompt("Nhập thông tin muốn sửa: ");
+            editDetailInformationCustomer(index, userChoice, userEdit);
+        }
+    }
+
+    function editDetailInformationCustomer(user, info, userEdit) {
+        listCustomers[user][info] = userEdit;
+        displayInfomationCustomer(user);
+    }
+
+    function deleteCustomer() {
+        let hienThi = "Choose Customer to Delete: \n";
+        for (let i = 0; i < listCustomers.length; i++) {
+            hienThi += "[" + i + "]. " + listCustomers[i][0] + ". " + listCustomers[i][1] + "\n";
+        }
+        hienThi += "[" + listCustomers.length + "]. Back";
+        let userChoice = parseInt(prompt(hienThi));
+        if (userChoice >= 0 && userChoice < listCustomers.length) {
+            confirmDeleteCustomer(userChoice);
+        }
+    }
+
+    function confirmDeleteCustomer(index) {
+        if (parseInt(prompt("1. YES\n2. NO ")) === 1) {
+            listCustomers.splice(index, 1);
+        }
+    }
+    let customer1 = new Customer("Nguyễn Trần T", "200211122", "26/01/1997",
+        "nguyen2697s@gmail.yes", "Đà Nẵng", "Diamond",
+        23, 4, 5, "Villa", "Vip");
+    let customer2 = new Customer("Trương Lài P", "200223422", "22/12/1994",
+        "truong2697s@gmail.yes", "HCM", "Diamond",
+        12, 5, 7, "House", "Vip");
+    const listCustomers = [customer1, customer2];
+    displayMainMenu();
+</script>
+</body>
+</html>
