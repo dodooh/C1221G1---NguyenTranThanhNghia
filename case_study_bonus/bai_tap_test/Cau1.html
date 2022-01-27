@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau1</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhap so luong phan tu"));
+    let mang = new Array(n);
+    for (let i = 0; i < mang.length; i++) {
+        mang[i] = parseInt(prompt("Nhap phan tu thu " + i));
+    }
+    let sum = 0;
+    let count = 0;
+    document.write("Mang nhap vao la: \n");
+    for (let i = 0; i < mang.length; i++) {
+        document.write(mang[i] + " ");
+        if (i % 3 === 0 && mang[i] % 5 === 0) {
+            sum += mang[i];
+            count++;
+        }
+    }
+
+    document.write("\nKết quả sau khi thuc hien la: " + (sum / count));
+
+</script>
+</body>
+</html>
