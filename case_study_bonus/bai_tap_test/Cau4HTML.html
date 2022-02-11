@@ -7,27 +7,28 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+<h1 class="display-4 text-center text-uppercase">Quan Ly Tai Khoan Ngan Hang</h1>
 <form>
     <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="accountID">Ma Tai Khoan</label>
+        <label class="col-sm-2 col-form-label pl-4" for="accountID">Ma Tai Khoan</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="accountID" placeholder="Ma Tai Khoan">
         </div>
     </div>
     <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="accountName">Ten Tai Khoan</label>
+        <label class="col-sm-2 col-form-label pl-4" for="accountName">Ten Tai Khoan</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="accountName" placeholder="Ten Tai Khoan">
         </div>
     </div>
     <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="bankName">Ten Ngan Hang</label>
+        <label class="col-sm-2 col-form-label pl-4" for="bankName">Ten Ngan Hang</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="bankName" placeholder="Ten Ngan Hang">
         </div>
     </div>
     <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="amount">So Tien</label>
+        <label class="col-sm-2 col-form-label pl-4" for="amount">So Tien</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="amount" placeholder="So Tien">
         </div>
@@ -112,13 +113,14 @@
 
     function displayListAccount(listAccount) {
         let listStr = "<table class='table'>";
-        listStr += "<tr>" +
+        listStr += "<thead class=\"thead-dark\">" + "<tr>" +
             "<th>STT</th>" +
             "<th>Ma Tai Khoan</th>" +
             "<th>Ten Tai Khoan</th>" +
             "<th>Ten Ngan Hang</th>" +
             "<th>So Tien</th>" +
-            "</tr>";
+            "</tr>" +
+            "</thead>";
         for (const i in listAccount) {
             let account = listAccount[i];
             listStr += "<tr>" +
