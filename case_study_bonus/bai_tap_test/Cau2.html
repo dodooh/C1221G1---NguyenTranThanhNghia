@@ -6,22 +6,20 @@
 </head>
 <body>
 <script>
-    function shortenWord(chuoi) {
-        chuoi = chuoi.trim();
-
-        let result = chuoi[0];
-        for (let i = 1; i < chuoi.length; i++) {
-            if (chuoi[i] !== " " && chuoi[i - 1] === " ") {
-                result += chuoi[i];
+    function shortenWord(string) {
+        string = string.trim();
+        let result = string[0];
+        for (let i = 1; i < string.length; i++) {
+            if (string[i] !== " " && string[i - 1] === " ") {
+                result += string[i];
             }
         }
         if (result.length === 1) {
-            alert("Chuỗi chỉ có 1 từ nên không cần viết tắc");
+            alert("Chuỗi chỉ có 1 từ nên không cần viết tắt");
         } else {
             return result.toUpperCase();
         }
     }
-
     console.log(shortenWord("   object  asdad sadasd asdasd     adasd ada   ddasd "));
 </script>
 </body>

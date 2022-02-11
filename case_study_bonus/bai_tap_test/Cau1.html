@@ -6,22 +6,24 @@
 </head>
 <body>
 <script>
-    let n = parseInt(prompt("Nhap so luong phan tu"));
-    let mang = new Array(n);
-    for (let i = 0; i < mang.length; i++) {
-        mang[i] = parseInt(prompt("Nhap phan tu thu " + i));
+    let n;
+    do {
+        n = parseInt(prompt("Nhap so luong phan tu"));
+    } while (n > 50 || n < 1);
+    let array = new Array(n);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = parseInt(prompt("Nhap phan tu thu " + i));
     }
     let sum = 0;
     let count = 0;
     document.write("Mang nhap vao la: \n");
-    for (let i = 0; i < mang.length; i++) {
-        document.write(mang[i] + " ");
-        if (i % 3 === 0 && mang[i] % 5 === 0) {
-            sum += mang[i];
+    for (let i = 0; i < array.length; i++) {
+        document.write(array[i] + " ");
+        if (i % 3 === 0 && array[i] % 5 === 0) {
+            sum += array[i];
             count++;
         }
     }
-
     document.write("\nKết quả sau khi thuc hien la: " + (sum / count));
 
 </script>

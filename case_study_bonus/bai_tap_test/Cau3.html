@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    function isFibonaci(number) {
+    function isFibonnaci(number) {
         if (number === 0 || number === 1) {
             return true;
         }
@@ -20,17 +20,17 @@
         return number === j;
     }
 
-    function findFibonaciInArray(array) {
+    function findFibonnaciInArray(array) {
         let result = [];
         for (const arrayElement of array) {
-            if (isFibonaci(arrayElement)) {
+            if (isFibonnaci(arrayElement)) {
                 result.push(arrayElement);
             }
         }
         return result.sort((a, b) => a - b);
     }
 
-    console.log(findFibonaciInArray([1, 5, 6, 13, 9, 12, 8, 0, 5, 1]));
+    console.log(findFibonnaciInArray([1, 5, 6, 13, 9, 12, 8, 0, 5, 1]));
 </script>
 </body>
 </html>

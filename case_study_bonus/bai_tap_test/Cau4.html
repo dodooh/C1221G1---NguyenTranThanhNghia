@@ -7,55 +7,45 @@
 <body>
 <script>
     class TaiKhoanNganHang {
-        constructor(maTaiKhoan, tenChuTaiKhoan, tenNganHang, tongTien) {
-            this.maTaiKhoan = maTaiKhoan;
-            this.tenChuTaiKhoan = tenChuTaiKhoan;
-            this.tenNganHang = tenNganHang;
-            this.tongTien = tongTien;
+        constructor(accountID, accountName, bankName, amount) {
+            this.accountID = accountID;
+            this.accountName = accountName;
+            this.bankName = bankName;
+            this.amount = amount;
         }
-
-        getMaTaiKhoan() {
-            return this.maTaiKhoan;
+        getAccountID() {
+            return this.accountID;
         }
-
-        setMaTaiKhoan(maTaiKhoan) {
-            this.maTaiKhoan = maTaiKhoan;
+        setAccountID(accountID) {
+            this.accountID = accountID;
         }
-
-        getTenChuTaiKhoan() {
-            return this.tenChuTaiKhoan;
+        getAccountName() {
+            return this.accountName;
         }
-
-        setTenChuTaiKhoan(tenChuTaiKhoan) {
-            this.tenChuTaiKhoan = tenChuTaiKhoan;
+        setAccountName(accountName) {
+            this.accountName = accountName;
         }
-
-        getTenNganHang() {
-            return this.tenNganHang;
+        getBankName() {
+            return this.bankName;
         }
-
-        setTenNganHang(tenNganHang) {
-            this.tenNganHang = tenNganHang;
+        setBankName(bankName) {
+            this.bankName = bankName;
         }
-
-        getTongTien() {
-            return this.tongTien;
+        getBankName() {
+            return this.bankName;
         }
-
-        setTongTien(tongTien) {
-            this.tongTien = tongTien;
+        setAmount(amount) {
+            this.amount = amount;
         }
-
         toString() {
-            return "Ma tai khoan: " + this.getMaTaiKhoan()
-                + "\nTen chu tai khoan: " + this.getTenChuTaiKhoan()
-                + "\nTen ngan hang: " + this.getTenNganHang()
-                + "\nTong tien trong tai khoan: " + this.getTongTien();
+            return "Ma tai khoan: " + this.getAccountID()
+                + "\nTen chu tai khoan: " + this.getAccountName()
+                + "\nTen ngan hang: " + this.getBankName()
+                + "\nTong tien trong tai khoan: " + this.getBankName();
         }
     }
 
-    let danhSach = [];
-
+    let listAccount = [];
     function addNewAccount() {
         let idNumber;
         do {
@@ -69,18 +59,25 @@
         let accountName = prompt("Nhap ten tai khoan");
         let bankName = prompt("nhap ten ngan hang");
         let amount = parseInt(prompt("Nhap so tien trong tai khoan"));
-        let tempAccount = new TaiKhoanNganHang(idNumber, accountName, bankName, amount);
-        danhSach.push(tempAccount);
+        listAccount.push(new TaiKhoanNganHang(idNumber, accountName, bankName, amount));
     }
-
-    function displayDanhSach() {
-        for (const account of danhSach) {
-            alert(account.toString());
+    function displayListAccount() {
+        let listStr = "";
+        for (const i in listAccount) {
+            listStr += "Tai khoan thu " + i + ":\n" + listAccount[i].toString() + "\n------------------------------\n";
+        }
+        alert(listStr);
+    }
+    while (true) {
+        let userInput = parseInt(prompt("[1]. Tao moi tai khoan\n[2]. Xem danh sach tai khoan\n[3]. Thoat"));
+        if (userInput === 1) {
+            addNewAccount();
+        } else if (userInput === 2) {
+            displayListAccount();
+        } else {
+            break;
         }
     }
-
-    addNewAccount();
-    displayDanhSach();
 </script>
 </body>
 </html>
