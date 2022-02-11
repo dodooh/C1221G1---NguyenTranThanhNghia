@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau4</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<form>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="accountID">Ma Tai Khoan</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="accountID" placeholder="Ma Tai Khoan">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="accountName">Ten Tai Khoan</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="accountName" placeholder="Ten Tai Khoan">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="bankName">Ten Ngan Hang</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="bankName" placeholder="Ten Ngan Hang">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="amount">So Tien</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="amount" placeholder="So Tien">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2 col-form-label"></div>
+        <div class="col-sm-10">
+            <input class="btn btn-primary" onclick="addNewAccount()" type="button" value="Them Tai Khoan">
+        </div>
+    </div>
+</form>
+<div id="show"></div>
+<script>
+    class BankAccount {
+        constructor(accountID, accountName, bankName, amount) {
+            this.accountID = accountID;
+            this.accountName = accountName;
+            this.bankName = bankName;
+            this.amount = amount;
+        }
+
+        getAccountID() {
+            return this.accountID;
+        }
+
+        setAccountID(accountID) {
+            this.accountID = accountID;
+        }
+
+        getAccountName() {
+            return this.accountName;
+        }
+
+        setAccountName(accountName) {
+            this.accountName = accountName;
+        }
+
+        getBankName() {
+            return this.bankName;
+        }
+
+        setBankName(bankName) {
+            this.bankName = bankName;
+        }
+
+        getAmount() {
+            return this.amount;
+        }
+
+        setAmount(amount) {
+            this.amount = amount;
+        }
+
+        toString() {
+            return "Ma tai khoan: " + this.getAccountID()
+                + "\nTen chu tai khoan: " + this.getAccountName()
+                + "\nTen ngan hang: " + this.getBankName()
+                + "\nTong tien trong tai khoan: " + this.getBankName();
+        }
+    }
+
+    let listAccount = [new BankAccount(12323, "Nguyen Nghia", "VCB", 493000)];
+
+    function addNewAccount() {
+        let idNumber = document.getElementById("accountID").value;
+        let accountName = document.getElementById("accountName").value;
+        let bankName = document.getElementById("bankName").value;
+        let amount = document.getElementById("amount").value;
+        if (!/^\d{5}$/.test(idNumber)) {
+            alert("Ma tai khoan khong hop le. Nhap lai");
+            document.getElementById("accountID").focus();
+        } else {
+            listAccount.push(new BankAccount(idNumber, accountName, bankName, amount));
+            displayListAccount(listAccount);
+            document.getElementById("accountID").value = "";
+            document.getElementById("accountName").value = "";
+            document.getElementById("bankName").value = "";
+            document.getElementById("amount").value = "";
+        }
+
+    }
+
+    function displayListAccount(listAccount) {
+        let listStr = "<table class='table'>";
+        listStr += "<tr>" +
+            "<th>STT</th>" +
+            "<th>Ma Tai Khoan</th>" +
+            "<th>Ten Tai Khoan</th>" +
+            "<th>Ten Ngan Hang</th>" +
+            "<th>So Tien</th>" +
+            "</tr>";
+        for (const i in listAccount) {
+            let account = listAccount[i];
+            listStr += "<tr>" +
+                "<td>" + (Number(i) + 1) + "</td>" +
+                "<td>" + account.getAccountID() + "</td>" +
+                "<td>" + account.getAccountName() + "</td>" +
+                "<td>" + account.getBankName() + "</td>" +
+                "<td>" + account.getAmount() + "</td>" +
+                "</tr>";
+        }
+        listStr += "</table>";
+        document.getElementById("show").innerHTML = listStr;
+    }
+
+    displayListAccount(listAccount);
+
+</script>
+</body>
+</html>

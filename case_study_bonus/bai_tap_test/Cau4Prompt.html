@@ -6,37 +6,46 @@
 </head>
 <body>
 <script>
-    class TaiKhoanNganHang {
+    class BankAccount {
         constructor(accountID, accountName, bankName, amount) {
             this.accountID = accountID;
             this.accountName = accountName;
             this.bankName = bankName;
             this.amount = amount;
         }
+
         getAccountID() {
             return this.accountID;
         }
+
         setAccountID(accountID) {
             this.accountID = accountID;
         }
+
         getAccountName() {
             return this.accountName;
         }
+
         setAccountName(accountName) {
             this.accountName = accountName;
         }
+
         getBankName() {
             return this.bankName;
         }
+
         setBankName(bankName) {
             this.bankName = bankName;
         }
+
         getBankName() {
             return this.bankName;
         }
+
         setAmount(amount) {
             this.amount = amount;
         }
+
         toString() {
             return "Ma tai khoan: " + this.getAccountID()
                 + "\nTen chu tai khoan: " + this.getAccountName()
@@ -46,6 +55,7 @@
     }
 
     let listAccount = [];
+
     function addNewAccount() {
         let idNumber;
         do {
@@ -59,15 +69,17 @@
         let accountName = prompt("Nhap ten tai khoan");
         let bankName = prompt("nhap ten ngan hang");
         let amount = parseInt(prompt("Nhap so tien trong tai khoan"));
-        listAccount.push(new TaiKhoanNganHang(idNumber, accountName, bankName, amount));
+        listAccount.push(new BankAccount(idNumber, accountName, bankName, amount));
     }
+
     function displayListAccount() {
         let listStr = "";
         for (const i in listAccount) {
-            listStr += "Tai khoan thu " + i + ":\n" + listAccount[i].toString() + "\n------------------------------\n";
+            listStr += "Tai khoan thu " + (i + 1) + ":\n" + listAccount[i].toString() + "\n------------------------------\n";
         }
         alert(listStr);
     }
+
     while (true) {
         let userInput = parseInt(prompt("[1]. Tao moi tai khoan\n[2]. Xem danh sach tai khoan\n[3]. Thoat"));
         if (userInput === 1) {
