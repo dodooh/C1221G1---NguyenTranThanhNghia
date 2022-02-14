@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cau 1</title>
+</head>
+<body>
+<script>
+    let numberOfElement;
+    do {
+        numberOfElement = parseInt(prompt("Nhập số lượng phần tử"));
+        if (numberOfElement <= 0 || numberOfElement > 50) {
+            alert("Số lượng phần tử nhập vào không hợp lệ");
+        } else {
+            break;
+        }
+    } while (true);
+    let array = new Array(numberOfElement);
+    let sum = 0;
+    let count = 0;
+    for (let i = 0; i < numberOfElement; i++) {
+        array[i] = parseInt(prompt("Nhập vào phần tử thứ " + i));
+        if ((i % 2 === 0) && (array[i] % 2 !== 0)) {
+            sum += array[i];
+            count++;
+        }
+    }
+    document.write("Mảng nhập vào là : [" + array + "]<br>");
+    document.write("Trung bình cộng các số lẻ ở vị trí chẵn là : " + (sum / count) + "\n");
+</script>
+</body>
+</html>
