@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau2</title>
+</head>
+<body>
+<script>
+    function tongUoc(number) {
+        let sum = 0;
+        for (let i = 1; i < number - 1; i++) {
+            if (number % i === 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+    function soThanThiet(number1, number2) {
+        return number1 === tongUoc(number2) && number2 === tongUoc(number1);
+    }
+    function findSoThanThiet() {
+        for(let i = 100; i < 10000; i++) {
+            if (soThanThiet(i,tongUoc(i))) {
+                document.write(i + " " + tongUoc(i) + "<br>");
+            }
+        }
+    }
+    findSoThanThiet()
+</script>
+</body>
+</html>

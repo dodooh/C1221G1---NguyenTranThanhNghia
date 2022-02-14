@@ -9,7 +9,11 @@
     let numberOfElements;
     do {
         numberOfElements = prompt("Nhập số lượng phần tử");
-        if (isNaN(numberOfElements) || numberOfElements !== parseInt(numberOfElements) || numberOfElements <= 0 || numberOfElements > 50) {
+        if (
+            isNaN(numberOfElements) ||
+            numberOfElements !== parseInt(numberOfElements) ||
+            numberOfElements <= 0 ||
+            numberOfElements > 50) {
             alert("Số lượng phần tử nhập vào không hợp lệ");
         } else {
             break;
