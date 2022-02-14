@@ -6,20 +6,20 @@
 </head>
 <body>
 <script>
-    let numberOfElement;
+    let numberOfElements;
     do {
-        numberOfElement = parseInt(prompt("Nhập số lượng phần tử"));
-        if (numberOfElement <= 0 || numberOfElement > 50) {
+        numberOfElements = parseInt(prompt("Nhập số lượng phần tử"));
+        if (numberOfElements <= 0 || numberOfElements > 50) {
             alert("Số lượng phần tử nhập vào không hợp lệ");
         } else {
             break;
         }
     } while (true);
-    let array = new Array(numberOfElement);
+    let array = new Array(numberOfElements);
     let sum = 0;
     let count = 0;
-    for (let i = 0; i < numberOfElement; i++) {
-        array[i] = parseInt(prompt("Nhập vào phần tử thứ " + i));
+    for (let i = 0; i < numberOfElements; i++) {
+        array[i] = parseInt(prompt("Nhập vào phần tử thứ " + (i + 1)));
         if ((i % 2 === 0) && (array[i] % 2 !== 0)) {
             sum += array[i];
             count++;

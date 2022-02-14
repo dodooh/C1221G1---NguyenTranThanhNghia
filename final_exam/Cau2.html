@@ -7,13 +7,13 @@
 <body>
 <script>
     function tongUoc(number) {
-        let sum = 0;
+        let tong = 0;
         for (let i = 1; i < number - 1; i++) {
             if (number % i === 0) {
-                sum += i;
+                tong += i;
             }
         }
-        return sum;
+        return tong;
     }
     function soThanThiet(number1, number2) {
         return number1 === tongUoc(number2) && number2 === tongUoc(number1);

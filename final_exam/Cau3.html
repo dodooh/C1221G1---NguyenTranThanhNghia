@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quan ly sach</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: "Comic Sans MS", sans-serif;
+        }
+        h1 {
+            margin: 30px 0;
+        }
+        #show {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .table1 {
+            width: 1080px;
+            text-align: left;
+            font-size: 20px;
+            border: 4px solid black;
+        }
+        th {
+            background-color: #898989;
+        }
+        tr:nth-child(odd) {
+            background-color: #cccccc;
+        }
+        #buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            margin: 30px 0;
+        }
+        #buttons > input {
+            font-family: inherit;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: white;
+            border: 4px solid black;
+            padding: 0 30px;
+        }
+    </style>
+</head>
+<body>
+<h1>Quản lí sách</h1>
+<div id="show"></div>
+<div id="buttons">
+    <input type="button" value="Thêm sách đã có">
+    <input type="button" onclick="addNewBook()" value="Thêm sách mới">
+    <input type="button" value="Mượn sách">
+    <input type="button" value="Hiển thị sách nhiều nhất">
+</div>
+<script>
+    class Book {
+        constructor(bookID, bookName, publishYear, quantity) {
+            this.bookID = bookID;
+            this.bookName = bookName;
+            this.publishYear = publishYear;
+            this.quantity = quantity;
+            this.status = quantity !== 0;
+        }
+        getBookID() {
+            return this.bookID;
+        }
+        setBookID(bookID) {
+            this.bookID = bookID;
+        }
+        getBookName() {
+            return this.bookName;
+        }
+        setBookName(bookName) {
+            this.bookName = bookName;
+        }
+        getPublishYear() {
+            return this.publishYear;
+        }
+        setPublishYear(publishYear) {
+            this.publishYear = publishYear;
+        }
+        getQuantity() {
+            return this.quantity;
+        }
+        setQuantity(quantity) {
+            this.quantity = quantity;
+        }
+        getStatus() {
+            return this.status;
+        }
+        setStatus(status) {
+            this.status = status;
+        }
+    }
+    let books = [
+        new Book("12345", "Toán", 2000, 3),
+        new Book("23456", "Văn", 1998, 4),
+        new Book("37456", "Tiếng Anh", 1999, 5)];
+    function display(array) {
+        let listStr = "<table class='table1'>";
+        listStr += "<tr>" +
+            "<th>Mã số sách</th>" +
+            "<th>Tên sách</th>" +
+            "<th>Năm xuất bản</th>" +
+            "<th>Số quyển</th>" +
+            "<th>Tình trạng</th>" +
+            "</tr>"
+        for (const book of array) {
+            listStr += "<tr>" +
+                "<td>" + book.getBookID() + "</td>" +
+                "<td>" + book.getBookName() + "</td>" +
+                "<td>" + book.getPublishYear() + "</td>" +
+                "<td>" + book.getQuantity() + "</td>" +
+                "<td>" + book.getStatus() + "</td>" +
+                "</tr>";
+        }
+        listStr += "</table>";
+        document.getElementById("show").innerHTML = listStr;
+    }
+    function addNewBook() {
+        let bookID;
+        do {
+            bookID = prompt("Nhập vào mã sách");
+            if (!/^[1-5]\d{4}$/.test(bookID)) {
+                alert(bookID + " không hợp lệ. Nhập lại!");
+            } else {
+                break;
+            }
+        } while (true);
+        let bookName = prompt("Nhập vào tên sách");
+        let publishYear;
+        do {
+            publishYear = parseInt(prompt("Nhập vào năm xuất bản"));
+            if (publishYear < 0 || publishYear > 2022) {
+                alert("Năm " + publishYear + " không hợp lệ. Nhập lại!");
+            } else {
+                break;
+            }
+        } while (true);
+        let quantity;
+        do {
+            quantity = parseInt(prompt("Nhập vào số lượng quyển sách"));
+            if (quantity < 0) {
+                alert("Số lượng " + quantity + " không hợp lệ. Nhập lại!");
+            } else {
+                break;
+            }
+        } while (true);
+        books.push(new Book(bookID, bookName, publishYear, quantity));
+        alert(
+            `Thêm sách thành công!!!\n
+            Mã sách: ${bookID}\n
+            Tên sách: ${bookName}\n
+            Năm xuất bản: ${publishYear}\n
+            Số lượng sách: ${quantity}`);
+        display(books);
+    }
+    display(books);
+</script>
+</body>
+</html>
