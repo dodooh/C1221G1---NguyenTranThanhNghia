@@ -8,25 +8,27 @@
 <script>
     let numberOfElements;
     do {
-        numberOfElements = parseInt(prompt("Nhập số lượng phần tử"));
-        if (numberOfElements <= 0 || numberOfElements > 50) {
+        numberOfElements = prompt("Nhập số lượng phần tử");
+        if (isNaN(numberOfElements) || numberOfElements !== parseInt(numberOfElements) || numberOfElements <= 0 || numberOfElements > 50) {
             alert("Số lượng phần tử nhập vào không hợp lệ");
         } else {
             break;
         }
     } while (true);
+    numberOfElements = parseInt(numberOfElements);
     let array = new Array(numberOfElements);
     let sum = 0;
     let count = 0;
     for (let i = 0; i < numberOfElements; i++) {
         array[i] = parseInt(prompt("Nhập vào phần tử thứ " + (i + 1)));
         if ((i % 2 === 0) && (array[i] % 2 !== 0)) {
+            // console.log(array[i])
             sum += array[i];
             count++;
         }
     }
     document.write("Mảng nhập vào là : [" + array + "]<br>");
-    document.write("Trung bình cộng các số lẻ ở vị trí chẵn là : " + (sum / count) + "\n");
+    document.write("Trung bình cộng các số lẻ ở vị trí chẵn là : " + (sum / count));
 </script>
 </body>
 </html>

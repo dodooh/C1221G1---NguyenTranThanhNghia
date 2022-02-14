@@ -7,20 +7,20 @@
 <body>
 <script>
     function tongUoc(number) {
-        let tong = 0;
+        let sum = 0;
         for (let i = 1; i < number - 1; i++) {
             if (number % i === 0) {
-                tong += i;
+                sum += i;
             }
         }
-        return tong;
+        return sum;
     }
     function soThanThiet(number1, number2) {
         return number1 === tongUoc(number2) && number2 === tongUoc(number1);
     }
     let number1 = parseInt(prompt("Nhập vào số thứ nhất"));
     let number2 = parseInt(prompt("Nhập vào số thứ hai"));
-    document.write(soThanThiet(number1, number2));
+    document.write(number1 + ", " + number2 + " là cặp số thân thiết? " + soThanThiet(number1, number2));
 </script>
 </body>
 </html>

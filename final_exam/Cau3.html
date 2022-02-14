@@ -26,9 +26,13 @@
         }
         th {
             background-color: #898989;
+            padding: 5px 0;
         }
         tr:nth-child(odd) {
             background-color: #cccccc;
+        }
+        td {
+            padding: 10px 4px;
         }
         #buttons {
             display: flex;
@@ -44,7 +48,7 @@
             font-weight: bold;
             background-color: white;
             border: 4px solid black;
-            padding: 0 30px;
+            padding: 0 40px;
         }
     </style>
 </head>
@@ -109,7 +113,7 @@
             "<th>Năm xuất bản</th>" +
             "<th>Số quyển</th>" +
             "<th>Tình trạng</th>" +
-            "</tr>"
+            "</tr>";
         for (const book of array) {
             listStr += "<tr>" +
                 "<td>" + book.getBookID() + "</td>" +
