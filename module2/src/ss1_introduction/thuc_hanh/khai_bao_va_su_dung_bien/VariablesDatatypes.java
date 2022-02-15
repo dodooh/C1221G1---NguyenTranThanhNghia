@@ -1,4 +1,4 @@
-package ss1_introduction.thuc_hanh;
+package ss1_introduction.thuc_hanh.khai_bao_va_su_dung_bien;
 
 public class VariablesDatatypes {
 
